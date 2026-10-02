@@ -1,1 +1,34 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');*{box-sizing:border-box}body{margin:0;min-height:100vh;background:linear-gradient(145deg,#2b0b32,#82306d,#a5427d);color:white;font-family:Arial,sans-serif;overflow-x:hidden}header{height:68px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;background:#4b123edd;border-bottom:1px solid #bd68a1;position:sticky;top:0;z-index:5}header b,.hero h1{font-family:'Press Start 2P',monospace}.hero{text-align:center;padding:50px 15px 25px;position:relative;z-index:1}.hero small{color:#f4add5;letter-spacing:2px}.hero h1{font-size:clamp(28px,5vw,50px);color:#ffc0e2}.hero p{color:#f6d1e5}.search{padding:10px 5%;position:relative;z-index:1}.search input{width:min(430px,100%);padding:14px;border-radius:9px;border:1px solid #c66fa9;background:#541744dd;color:#fff}main{position:relative;z-index:1;padding:20px 5% 70px;display:grid;grid-template-columns:repeat(5,1fr);gap:15px}.card{background:#4d153fdd;border:1px solid #a95289;border-radius:13px;overflow:hidden}.visual{height:150px;background:linear-gradient(135deg,#78255f,#35102f);display:grid;place-items:center}.yin{font-size:88px;line-height:1;color:#fff;background:#000;border-radius:50%;width:86px;height:86px;display:grid;place-items:center;font-family:serif}.body{padding:14px}.body h3{font-size:13px;line-height:1.4;min-height:55px;margin:0}.desc{font-size:11px;color:#efb8d6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.old{text-decoration:line-through;color:#c198b0;font-size:12px;margin-top:12px}.price{font-size:21px;font-weight:bold}.body small{color:#cda4ba}.buy{width:100%;margin-top:13px;padding:11px;border:0;border-radius:8px;background:#f1afd4;color:#351027;font-weight:bold}.flower{position:fixed;top:-40px;z-index:0;opacity:.25;pointer-events:none;animation:fall linear infinite}@keyframes fall{to{transform:translate(30px,110vh) rotate(360deg)}}@media(max-width:1050px){main{grid-template-columns:repeat(3,1fr)}}@media(max-width:650px){main{grid-template-columns:repeat(2,1fr)}}@media(max-width:430px){main{grid-template-columns:1fr}}
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');*{box-sizing:border-box}body{margin:0;min-height:100vh;background:linear-gradient(145deg,#2b0b32,#82306d,#a5427d);color:white;font-family:Arial,sans-serif;overflow-x:hidden}header{height:68px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;background:#4b123edd;border-bottom:1px solid #bd68a1;position:sticky;top:0;z-index:5}header b,.hero h1{font-family:'Press Start 2P',monospace}.hero{text-align:center;padding:50px 15px 25px;position:relative;z-index:1}.hero small{color:#f4add5;letter-spacing:2px}.hero h1{font-size:clamp(28px,5vw,50px);color:#ffc0e2}.hero p{color:#f6d1e5}.search{padding:10px 5%;position:relative;z-index:1}.search input{width:min(430px,100%);padding:14px;border-radius:9px;border:1px solid #c66fa9;background:#541744dd;color:#fff}main{position:relative;z-index:1;padding:20px 5% 70px;display:grid;grid-template-columns:repeat(5,1fr);gap:15px}.card{background:#4d153fdd;border:1px solid #a95289;border-radius:13px;overflow:hidden}.visual{height:150px;background:linear-gradient(135deg,#78255f,#35102f);display:grid;place-items:center}.yin{font-size:88px;line-height:1;color:#fff;background:#000;border-radius:50%;width:86px;height:86px;display:grid;place-items:center;font-family:serif}.body{padding:14px}.body h3{font-size:13px;line-height:1.4;min-height:55px;margin:0}.desc{font-size:11px;color:#efb8d6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.old{text-decoration:line-through;color:#c198b0;font-size:12px;margin-top:12px}.price{font-size:21px;font-weight:bold}.body small{color:#cda4ba}.buy{width:100%;margin-top:13px;padding:11px;border:0;border-radius:8px;background:#f1afd4;color:#351027;font-weight:bold}.flower{position:fixed;top:-40px;z-index:0;opacity:.25;pointer-events:none;animation:fall linear infinite}@keyframes fall{to{transform:translate(30px,110vh) rotate(360deg)}}@media(max-width:1050px){main{grid-template-columns:repeat(3,1fr)}}@media(max-width:650px){main{grid-template-columns:repeat(2,1fr)}}@media(max-width:430px){main{grid-template-columns:1fr}}/* TAVARES - marca d'água flutuante */
+.tavares-watermark {
+  position: fixed;
+  top: -60px;
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+
+  font-family: "Press Start 2P", cursive;
+  font-size: 14px;
+  color: white;
+
+  text-shadow:
+    0 0 6px #ff4fd8,
+    0 0 12px #9b5cff;
+
+  animation-name: tavaresFall;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes tavaresFall {
+  0% {
+    transform: translateY(-60px) rotate(-8deg);
+  }
+
+  50% {
+    transform: translateY(55vh) translateX(20px) rotate(5deg);
+  }
+
+  100% {
+    transform: translateY(115vh) translateX(-15px) rotate(-6deg);
+  }
+}
