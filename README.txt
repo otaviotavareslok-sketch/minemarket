@@ -1,0 +1,1 @@
+Abra index.html no navegador. Versão com preços atualizados, yin-yang preto e branco, fonte pixel e flores blossom animadas.
