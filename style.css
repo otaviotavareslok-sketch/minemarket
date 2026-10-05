@@ -303,5 +303,20 @@ body {
     transform: scale(1);
   }
 
+} /* ===== BANNER HUNGER GAMES ===== */
+
+.hg-banner {
+  width: 88%;
+  max-width: 1200px;
+  margin: 25px auto 35px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.hg-banner img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
