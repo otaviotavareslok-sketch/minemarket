@@ -43,5 +43,182 @@ html, body {
 body {
     position: relative;
     background-color: #050505;
+}/* ===== BOTÕES DE CATEGORIA ===== */
+
+.category-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.category-buttons button {
+  background: linear-gradient(135deg, #9b5cff, #ff4fd8);
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  font-family: "Press Start 2P", cursive;
+  font-size: 11px;
+  cursor: pointer;
+  border-radius: 8px;
+
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.category-buttons button:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow:
+    0 0 15px #9b5cff,
+    0 0 25px #ff4fd8;
+}
+
+
+/* ===== FUNDO DO POP-UP ===== */
+
+.popup {
+  display: none;
+
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+
+  z-index: 9999;
+
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Quando o popup estiver aberto */
+
+.popup.ativo {
+  display: flex;
+}
+
+
+/* ===== CAIXA DO POP-UP ===== */
+
+.popup-box {
+  position: relative;
+
+  width: min(500px, 85%);
+  padding: 40px 30px;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      145deg,
+      #160d25,
+      #09050f
+    );
+
+  border: 2px solid #9b5cff;
+  border-radius: 14px;
+
+  box-shadow:
+    0 0 25px rgba(155, 92, 255, 0.5),
+    0 0 50px rgba(255, 79, 216, 0.2);
+
+  animation: popupEntrada 0.25s ease;
+}
+
+.popup-box small {
+  color: #ff4fd8;
+}
+
+.popup-box h2 {
+  margin: 20px 0;
+
+  color: white;
+
+  font-family: "Press Start 2P", cursive;
+  font-size: 20px;
+
+  text-shadow:
+    0 0 10px #9b5cff,
+    0 0 20px #ff4fd8;
+}
+
+.popup-box p {
+  color: #d6cbe5;
+  line-height: 1.7;
+}
+
+
+/* ===== BOTÃO X ===== */
+
+.popup-close {
+  position: absolute;
+
+  top: 12px;
+  right: 15px;
+
+  border: none;
+  background: transparent;
+
+  color: white;
+  font-size: 28px;
+
+  cursor: pointer;
+}
+
+.popup-close:hover {
+  color: #ff4fd8;
+}
+
+
+/* ===== BOTÃO DO POP-UP ===== */
+
+.popup-action {
+  margin-top: 20px;
+
+  padding: 14px 25px;
+
+  border: none;
+  border-radius: 7px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #9b5cff,
+      #ff4fd8
+    );
+
+  color: white;
+
+  font-family: "Press Start 2P", cursive;
+  font-size: 10px;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.popup-action:hover {
+  transform: scale(1.05);
+
+  box-shadow:
+    0 0 15px #9b5cff,
+    0 0 25px #ff4fd8;
+}
+
+
+/* ===== ANIMAÇÃO ===== */
+
+@keyframes popupEntrada {
+
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+
 }
 
