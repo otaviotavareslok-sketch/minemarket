@@ -1005,7 +1005,85 @@ header {
 
   #aba-capas .capa-visual {
     width: 100%;
+/* ==========================================
+   CARDS DAS CAPAS
+========================================== */
 
+#aba-capas .capa-card {
+  padding: 0 !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+
+/* ==========================================
+   ÁREA GRANDE DA FOTO
+========================================== */
+
+#aba-capas .capa-visual {
+  width: 100% !important;
+
+  /* aumenta a altura da foto */
+  height: 420px !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  overflow: hidden !important;
+
+  /* remove o quadrado forçado */
+  aspect-ratio: auto !important;
+
+  flex-shrink: 0 !important;
+}
+
+
+/* ==========================================
+   FOTO PREENCHENDO TODA A REGIÃO
+========================================== */
+
+#aba-capas .capa-visual img {
+  display: block !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  max-width: none !important;
+  max-height: none !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+
+/* ==========================================
+   INFORMAÇÕES DA CAPA
+========================================== */
+
+#aba-capas .capa-card .body {
+  width: 100% !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+
+  padding: 14px !important;
+
+  box-sizing: border-box !important;
+}
+
+
+/* NOME */
+
+#aba-capas .capa-card h3 {
+  margin: 0 0 12px 0 !important;
+}
+
+
+/*
     aspect-ratio: 1 / 1;
   }
 
