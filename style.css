@@ -22,13 +22,13 @@ html {
 }
 
 body {
-  color: white;
-  font-family: Arial, sans-serif;
-
   margin: 0;
   padding: 0;
 
   overflow-x: hidden;
+
+  color: white;
+  font-family: Arial, sans-serif;
 
   background: #11151d;
 }
@@ -62,6 +62,8 @@ header {
   top: 0;
   left: 0;
 
+  z-index: 100;
+
   width: 100%;
   height: 74px;
 
@@ -71,22 +73,22 @@ header {
   align-items: center;
   justify-content: space-between;
 
-  z-index: 100;
-
   background: transparent;
 
-  border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.45);
 }
 
 
-/* LOGO */
+/* =====================================================
+   LOGO
+===================================================== */
 
 .logo-topo {
-  font-family: "Press Start 2P", monospace;
-
-  font-size: 27px;
-
   color: white;
+
+  font-family: "Press Start 2P", monospace;
+  font-size: 27px;
 
   letter-spacing: 1px;
 
@@ -112,7 +114,8 @@ header {
   border: 0;
   border-radius: 5px;
 
-  background: rgba(0, 90, 190, 0.70);
+  background:
+    rgba(0, 90, 190, 0.70);
 
   color: white;
 
@@ -126,11 +129,12 @@ header {
 }
 
 .menu button:first-child {
-  background: linear-gradient(
-    90deg,
-    #ff68c8,
-    #ed5be6
-  );
+  background:
+    linear-gradient(
+      90deg,
+      #ff68c8,
+      #ed5be6
+    );
 
   color: #29214d;
 }
@@ -143,7 +147,7 @@ header {
 
 
 /* =====================================================
-   INÍCIO
+   PÁGINA INICIAL
 ===================================================== */
 
 #aba-inicio {
@@ -152,18 +156,14 @@ header {
   margin: 0;
   padding: 0;
 
-  background: #11151d;
-
   overflow: hidden;
+
+  background: #11151d;
 }
 
 
 /* =====================================================
-   MUNDO COMPLETO
-
-   UMA ÚNICA IMAGEM.
-   SEM REPETIÇÃO.
-   SEM FUNDO-PEDRA.
+   MUNDO / BANNER PRINCIPAL
 ===================================================== */
 
 .inicio-mundo {
@@ -183,15 +183,15 @@ header {
 /* =====================================================
    IMAGEM DO MUNDO
 
-   IMPORTANTE:
-   - não repete
-   - não estica verticalmente
-   - mantém a proporção original
-   - usa renderização normal do navegador
+   UMA ÚNICA IMAGEM
+   SEM REPETIÇÃO
+   SEM DISTORÇÃO VERTICAL
 ===================================================== */
 
 .inicio-mundo .mundo-img {
   position: relative;
+
+  z-index: 1;
 
   display: block;
 
@@ -210,11 +210,7 @@ header {
 
   image-rendering: auto;
 
-  transform: translateZ(0);
-
   backface-visibility: hidden;
-
-  z-index: 1;
 }
 
 
@@ -228,11 +224,11 @@ header {
   top: 100px;
   left: 50%;
 
-  transform: translateX(-50%);
-
   z-index: 20;
 
   width: 100%;
+
+  transform: translateX(-50%);
 
   display: flex;
   flex-direction: column;
@@ -267,7 +263,7 @@ header {
 
 
 /* =====================================================
-   BOTÕES CAPAS / CONTAS
+   BOTÕES CAPAS / CONTAS DA HOME
 ===================================================== */
 
 .category-buttons {
@@ -288,13 +284,11 @@ header {
   padding: 14px 20px;
 
   border: 0;
-
   border-radius: 7px;
 
   color: white;
 
   font-family: "Press Start 2P", monospace;
-
   font-size: 11px;
 
   cursor: pointer;
@@ -306,19 +300,21 @@ header {
 }
 
 .category-buttons button:first-child {
-  background: linear-gradient(
-    90deg,
-    #ff69c8,
-    #e84fe1
-  );
+  background:
+    linear-gradient(
+      90deg,
+      #ff69c8,
+      #e84fe1
+    );
 }
 
 .category-buttons button:last-child {
-  background: linear-gradient(
-    90deg,
-    #a25cff,
-    #704cff
-  );
+  background:
+    linear-gradient(
+      90deg,
+      #a25cff,
+      #704cff
+    );
 }
 
 .category-buttons button:hover {
@@ -332,14 +328,16 @@ header {
 
 
 /* =====================================================
-   CAPAS / CONTAS
+   PÁGINAS CAPAS / CONTAS
 ===================================================== */
 
 #aba-capas,
 #aba-contas {
   min-height: 100vh;
 
-  padding: 110px 5% 70px;
+  padding:
+    110px 5%
+    70px;
 
   background:
     linear-gradient(
@@ -356,9 +354,9 @@ header {
 ===================================================== */
 
 .titulo-categoria {
-  text-align: center;
-
   margin-bottom: 30px;
+
+  text-align: center;
 }
 
 .titulo-categoria small {
@@ -371,7 +369,6 @@ header {
   color: white;
 
   font-family: "Press Start 2P", monospace;
-
   font-size: 22px;
 
   text-shadow:
@@ -403,31 +400,32 @@ header {
 
   padding: 14px;
 
+  border: 1px solid #c66fa9;
   border-radius: 9px;
 
-  border: 1px solid #c66fa9;
+  outline: none;
 
   background: #541744dd;
 
   color: white;
-
-  outline: none;
 }
 
 .search input::placeholder {
-  color: rgba(255, 255, 255, 0.65);
+  color:
+    rgba(255, 255, 255, 0.65);
 }
 
 .search input:focus {
   border-color: #ff69c8;
 
   box-shadow:
-    0 0 10px rgba(255, 105, 200, 0.35);
+    0 0 10px
+    rgba(255, 105, 200, 0.35);
 }
 
 
 /* =====================================================
-   GRID
+   GRID GERAL
 ===================================================== */
 
 .produtos-grid {
@@ -441,24 +439,36 @@ header {
     repeat(4, minmax(0, 1fr));
 
   gap: 18px;
+
+  align-items: stretch;
 }
 
 
 /* =====================================================
-   CARDS
+   CARDS GERAIS
 ===================================================== */
 
 .card {
+  min-width: 0;
+
   overflow: hidden;
 
   background: #4d153fdd;
 
   border: 1px solid #a95289;
-
   border-radius: 13px;
 }
 
-.visual {
+
+/* =====================================================
+   VISUAL DAS CONTAS
+
+   IMPORTANTE:
+   ESSA REGRA É PARA CONTAS.
+   AS CAPAS TÊM REGRAS PRÓPRIAS MAIS ABAIXO.
+===================================================== */
+
+#aba-contas .visual {
   height: 190px;
 
   display: grid;
@@ -475,12 +485,10 @@ header {
     );
 }
 
-.visual img {
-  width: 100%;
-  height: 100%;
 
-  object-fit: cover;
-}
+/* =====================================================
+   YIN YANG DAS CONTAS
+===================================================== */
 
 .yin {
   width: 86px;
@@ -503,6 +511,11 @@ header {
   line-height: 1;
 }
 
+
+/* =====================================================
+   CONTEÚDO DOS CARDS
+===================================================== */
+
 .body {
   padding: 14px;
 }
@@ -513,7 +526,6 @@ header {
   margin: 0;
 
   font-size: 13px;
-
   line-height: 1.4;
 }
 
@@ -540,14 +552,20 @@ header {
 }
 
 .price {
-  font-size: 21px;
+  color: white;
 
+  font-size: 21px;
   font-weight: bold;
 }
 
 .body small {
   color: #cda4ba;
 }
+
+
+/* =====================================================
+   BOTÃO COMPRAR
+===================================================== */
 
 .buy {
   width: 100%;
@@ -557,7 +575,6 @@ header {
   padding: 11px;
 
   border: 0;
-
   border-radius: 8px;
 
   background: #f1afd4;
@@ -581,6 +598,164 @@ header {
 
 
 /* =====================================================
+   CAPAS
+===================================================== */
+
+/*
+   Cada card das capas é uma coluna:
+   IMAGEM
+   NOME
+   DESCRIÇÃO
+   PREÇO
+   BOTÃO
+*/
+
+#aba-capas .capa-card {
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+
+  overflow: hidden;
+
+  background: #4d153fdd;
+
+  border:
+    1px solid #a95289;
+
+  border-radius: 13px;
+}
+
+
+/* =====================================================
+   FOTO DAS CAPAS
+
+   ESTA É A PARTE PRINCIPAL DA CORREÇÃO.
+
+   A foto ocupa TODA a largura do card.
+   Não fica mais presa aos 190px.
+===================================================== */
+
+#aba-capas .capa-visual {
+  position: relative;
+
+  width: 100%;
+
+  height: auto;
+
+  aspect-ratio: 1 / 1;
+
+  margin: 0;
+  padding: 0;
+
+  display: block;
+
+  overflow: hidden;
+
+  background: #35102f;
+}
+
+
+/* FOTO REAL */
+
+#aba-capas .capa-visual img {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  object-fit: cover;
+  object-position: center;
+
+  border: 0;
+}
+
+
+/* =====================================================
+   PARTE DE BAIXO DO CARD DAS CAPAS
+===================================================== */
+
+#aba-capas .capa-card .body {
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+
+  padding: 16px;
+}
+
+
+/* NOME */
+
+#aba-capas .capa-card .body h3 {
+  min-height: 0;
+
+  margin: 0 0 8px;
+
+  color: white;
+
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+
+/* DESCRIÇÃO */
+
+#aba-capas .capa-card .desc {
+  margin: 0 0 16px;
+
+  overflow: visible;
+
+  color: #efb8d6;
+
+  font-size: 11px;
+  line-height: 1.5;
+
+  white-space: normal;
+
+  text-overflow: unset;
+}
+
+
+/* PREÇO */
+
+#aba-capas .capa-card .price {
+  margin-top: auto;
+
+  color: white;
+
+  font-size: 22px;
+  font-weight: 700;
+}
+
+
+/* PIX */
+
+#aba-capas .capa-card .body small {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #cda4ba;
+}
+
+
+/* BOTÃO */
+
+#aba-capas .capa-card .buy {
+  margin-top: 14px;
+}
+
+
+/* =====================================================
    MARCA D'ÁGUA TAVARES
 ===================================================== */
 
@@ -595,11 +770,10 @@ header {
 
   user-select: none;
 
-  font-family: "Press Start 2P", monospace;
-
-  font-size: 14px;
-
   color: white;
+
+  font-family: "Press Start 2P", monospace;
+  font-size: 14px;
 
   opacity: 0.12;
 
@@ -610,6 +784,7 @@ header {
   animation:
     tavaresFall linear forwards;
 }
+
 
 @keyframes tavaresFall {
 
@@ -634,137 +809,27 @@ header {
 
     opacity: 0;
   }
+
 }
 
 
 /* =====================================================
-   FOLHAS PIXELIZADAS
-
-   NÃO SÃO EMOJIS.
+   REMOVE TODAS AS FOLHAS
 ===================================================== */
 
 .leaf {
-  position: fixed;
+  display: none !important;
 
-  top: -25px;
+  visibility: hidden !important;
 
-  width: 6px;
-  height: 6px;
+  opacity: 0 !important;
 
-  background: #4b9639;
-
-  box-shadow:
-    6px 0 #347a2e,
-    12px 0 #286528,
-
-    -6px 6px #60ad43,
-    0 6px #4b9639,
-    6px 6px #347a2e,
-
-    0 12px #347a2e,
-    6px 12px #286528,
-
-    6px 18px #235c25;
-
-  border-radius: 0;
-
-  z-index: 50;
-
-  pointer-events: none;
-
-  user-select: none;
-
-  opacity: 0;
-
-  /* ESCONDE QUALQUER EMOJI QUE O JS COLOQUE */
-  font-size: 0 !important;
-
-  line-height: 0;
-
-  color: transparent !important;
-
-  text-indent: -9999px;
-
-  overflow: visible;
-
-  image-rendering: pixelated;
-
-  animation-name: folhaCaindo;
-
-  animation-timing-function: linear;
-
-  animation-fill-mode: forwards;
-
-  transform-origin: center;
+  pointer-events: none !important;
 }
 
 
 /* =====================================================
-   FOLHA CAINDO
-===================================================== */
-
-@keyframes folhaCaindo {
-
-  0% {
-    opacity: 0;
-
-    transform:
-      translate3d(0, -20px, 0)
-      rotate(0deg);
-  }
-
-  8% {
-    opacity: 0.90;
-  }
-
-  25% {
-    transform:
-      translate3d(
-        var(--vento, 25px),
-        22vh,
-        0
-      )
-      rotate(90deg);
-  }
-
-  50% {
-    transform:
-      translate3d(
-        calc(var(--vento, 25px) * -0.6),
-        48vh,
-        0
-      )
-      rotate(180deg);
-  }
-
-  75% {
-    transform:
-      translate3d(
-        var(--vento, 25px),
-        76vh,
-        0
-      )
-      rotate(270deg);
-
-    opacity: 0.70;
-  }
-
-  100% {
-    transform:
-      translate3d(
-        calc(var(--vento, 25px) * -0.4),
-        110vh,
-        0
-      )
-      rotate(var(--rotacao, 360deg));
-
-    opacity: 0;
-  }
-}
-
-
-/* =====================================================
-   MATA DEFINITIVAMENTE AS FLORES ANTIGAS
+   REMOVE FLORES ANTIGAS
 ===================================================== */
 
 .flower,
@@ -790,7 +855,8 @@ header {
 .reveal {
   opacity: 0;
 
-  transform: translateY(50px);
+  transform:
+    translateY(50px);
 
   transition:
     opacity 0.8s ease,
@@ -800,12 +866,13 @@ header {
 .reveal.apareceu {
   opacity: 1;
 
-  transform: translateY(0);
+  transform:
+    translateY(0);
 }
 
 
 /* =====================================================
-   RESPONSIVO
+   RESPONSIVO - NOTEBOOK / TABLET
 ===================================================== */
 
 @media (max-width: 1050px) {
@@ -818,8 +885,13 @@ header {
     grid-template-columns:
       repeat(3, minmax(0, 1fr));
   }
+
 }
 
+
+/* =====================================================
+   RESPONSIVO - TABLET / CELULAR
+===================================================== */
 
 @media (max-width: 700px) {
 
@@ -829,13 +901,16 @@ header {
     padding: 0 3%;
   }
 
+
   .logo-topo {
     font-size: 17px;
   }
 
+
   .menu {
     gap: 4px;
   }
+
 
   .menu button {
     padding: 8px 9px;
@@ -843,9 +918,11 @@ header {
     font-size: 11px;
   }
 
+
   .inicio-conteudo {
     top: 78px;
   }
+
 
   .inicio-conteudo small {
     font-size: 10px;
@@ -853,13 +930,16 @@ header {
     letter-spacing: 2px;
   }
 
+
   .inicio-conteudo p {
     font-size: 13px;
   }
 
+
   .category-buttons {
     gap: 8px;
   }
+
 
   .category-buttons button {
     width: 120px;
@@ -869,12 +949,28 @@ header {
     font-size: 9px;
   }
 
+
   .produtos-grid {
     grid-template-columns:
       repeat(2, minmax(0, 1fr));
+
+    gap: 14px;
   }
+
+
+  #aba-capas,
+  #aba-contas {
+    padding:
+      90px 3%
+      50px;
+  }
+
 }
 
+
+/* =====================================================
+   RESPONSIVO - CELULAR
+===================================================== */
 
 @media (max-width: 450px) {
 
@@ -882,11 +978,13 @@ header {
     font-size: 13px;
   }
 
+
   .menu button {
     padding: 7px;
 
     font-size: 9px;
   }
+
 
   .category-buttons button {
     width: 105px;
@@ -894,241 +992,21 @@ header {
     font-size: 8px;
   }
 
+
   .produtos-grid {
     grid-template-columns: 1fr;
   }
-/* =====================================================
-   REMOVE TODAS AS FOLHAS
-===================================================== */
 
-.leaf {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
-}
 
-
-/* =====================================================
-   CAPAS
-===================================================== */
-
-#aba-capas .card {
-  display: flex;
-  flex-direction: column;
-
-  height: 100%;
-
-  overflow: hidden;
-
-  background: #4d153fdd;
-
-  border: 1px solid #a95289;
-  border-radius: 13px;
-}
-
-
-/* =====================================================
-   IMAGEM DAS CAPAS
-===================================================== */
-
-#aba-capas .capa-visual {
-  position: relative;
-
-  width: 100%;
-
-  /*
-    Como as imagens são quadradas,
-    isso mantém a proporção correta.
-  */
-  aspect-ratio: 1 / 1;
-
-  height: auto;
-
-  overflow: hidden;
-
-  background: #35102f;
-}
-
-
-/* IMAGEM */
-
-#aba-capas .capa-visual img {
-  display: block;
-
-  width: 100%;
-  height: 100%;
-
-  /*
-    Preenche TODA a largura do card
-    sem deformar a imagem.
-  */
-  object-fit: cover;
-
-  object-position: center;
-
-  margin: 0;
-  padding: 0;
-}
-
-
-/* =====================================================
-   INFORMAÇÕES DAS CAPAS
-===================================================== */
-
-#aba-capas .card .body {
-  display: flex;
-  flex-direction: column;
-
-  flex: 1;
-
-  padding: 15px;
-}
-
-
-/* NOME */
-
-#aba-capas .card .body h3 {
-  min-height: 0;
-
-  margin: 0 0 10px;
-
-  color: white;
-
-  font-size: 13px;
-  line-height: 1.4;
-}
-
-
-/* DESCRIÇÃO */
-
-#aba-capas .card .desc {
-  margin: 5px 0 13px;
-
-  overflow: visible;
-
-  color: #efb8d6;
-
-  font-size: 11px;
-
-  white-space: normal;
-
-  text-overflow: unset;
-}
-
-
-/* PREÇO */
-
-#aba-capas .card .price {
-  margin-top: auto;
-
-  color: white;
-
-  font-size: 21px;
-  font-weight: bold;
-}
-
-
-/* PIX */
-
-#aba-capas .card .body small {
-  margin-top: 2px;
-
-  color: #cda4ba;
-}
-
-
-/* BOTÃO */
-
-#aba-capas .card .buy {
-  width: 100%;
-
-  margin-top: 13px;
-
-  padding: 12px;
-
-  border: 0;
-  border-radius: 8px;
-
-  background: #f1afd4;
-
-  color: #351027;
-
-  font-weight: bold;
-
-  cursor: pointer;
-
-  transition:
-    transform 0.2s ease,
-    filter 0.2s ease;
-}
-
-
-#aba-capas .card .buy:hover {
-  transform: translateY(-2px);
-
-  filter: brightness(1.08);
-}
-
-
-/* =====================================================
-   GRID DAS CAPAS - PC
-===================================================== */
-
-#aba-capas .produtos-grid {
-  width: min(1400px, 94%);
-
-  margin: 0 auto;
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(4, minmax(0, 1fr));
-
-  gap: 18px;
-
-  align-items: stretch;
-}
-
-
-/* =====================================================
-   TABLET
-===================================================== */
-
-@media (max-width: 1050px) {
-
-  #aba-capas .produtos-grid {
-    grid-template-columns:
-      repeat(3, minmax(0, 1fr));
+  #aba-capas .capa-card {
+    width: 100%;
   }
 
-}
 
+  #aba-capas .capa-visual {
+    width: 100%;
 
-/* =====================================================
-   CELULAR / TABLET PEQUENO
-===================================================== */
-
-@media (max-width: 700px) {
-
-  #aba-capas .produtos-grid {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
-
-    gap: 12px;
-  }
-
-}
-
-
-/* =====================================================
-   CELULAR
-===================================================== */
-
-@media (max-width: 450px) {
-
-  #aba-capas .produtos-grid {
-    grid-template-columns: 1fr;
+    aspect-ratio: 1 / 1;
   }
 
 }
