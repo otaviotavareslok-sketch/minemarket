@@ -779,4 +779,29 @@ header {
     font-size: 8px;
   }
 
+}/* =========================================
+   CONTINUAÇÃO DA CAVERNA ATÉ O FIM
+========================================= */
+
+.fundo-pedra {
+  width: 100%;
+  min-height: 100vh;
+
+  margin: 0;
+  padding: 0;
+
+  /* usa a mesma imagem */
+  background-image: url("banner%20novo2.png");
+
+  /* aumenta para a mesma largura do banner */
+  background-size: 100% auto;
+
+  /* mostra somente a região de baixo da imagem */
+  background-position: center bottom;
+
+  /* não repete */
+  background-repeat: no-repeat;
+
+  /* cor de segurança atrás da imagem */
+  background-color: #202226;
 }
