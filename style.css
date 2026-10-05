@@ -24,7 +24,12 @@ html {
 body {
   color: white;
   font-family: Arial, sans-serif;
+
+  margin: 0;
+  padding: 0;
+
   overflow-x: hidden;
+
   background: #11151d;
 }
 
@@ -53,6 +58,7 @@ input {
 
 header {
   position: absolute;
+
   top: 0;
   left: 0;
 
@@ -77,9 +83,11 @@ header {
 
 .logo-topo {
   font-family: "Press Start 2P", monospace;
+
   font-size: 27px;
 
   color: white;
+
   letter-spacing: 1px;
 
   text-shadow:
@@ -94,6 +102,7 @@ header {
 .menu {
   display: flex;
   align-items: center;
+
   gap: 8px;
 }
 
@@ -104,6 +113,7 @@ header {
   border-radius: 5px;
 
   background: rgba(0, 90, 190, 0.70);
+
   color: white;
 
   font-weight: 800;
@@ -127,6 +137,7 @@ header {
 
 .menu button:hover {
   transform: translateY(-2px);
+
   filter: brightness(1.1);
 }
 
@@ -142,14 +153,17 @@ header {
   padding: 0;
 
   background: #11151d;
+
+  overflow: hidden;
 }
 
 
 /* =====================================================
    MUNDO COMPLETO
 
-   AGORA É UMA ÚNICA IMAGEM VERTICAL.
-   NÃO EXISTE MAIS FUNDO-PEDRA.
+   UMA ÚNICA IMAGEM.
+   SEM REPETIÇÃO.
+   SEM FUNDO-PEDRA.
 ===================================================== */
 
 .inicio-mundo {
@@ -160,19 +174,21 @@ header {
   margin: 0;
   padding: 0;
 
-  overflow: visible;
+  overflow: hidden;
 
   background: #11151d;
 }
 
 
-/*
-   A imagem ocupa a largura inteira.
+/* =====================================================
+   IMAGEM DO MUNDO
 
-   Conforme a pessoa rola o site,
-   ela vai vendo as partes mais profundas
-   da mesma imagem.
-*/
+   IMPORTANTE:
+   - não repete
+   - não estica verticalmente
+   - mantém a proporção original
+   - usa renderização normal do navegador
+===================================================== */
 
 .inicio-mundo .mundo-img {
   position: relative;
@@ -180,9 +196,9 @@ header {
   display: block;
 
   width: 100%;
-  max-width: none;
-
   height: auto;
+
+  max-width: none;
 
   margin: 0;
   padding: 0;
@@ -191,6 +207,12 @@ header {
   object-position: top center;
 
   background: transparent;
+
+  image-rendering: auto;
+
+  transform: translateZ(0);
+
+  backface-visibility: hidden;
 
   z-index: 1;
 }
@@ -227,6 +249,7 @@ header {
   margin: 0 0 13px;
 
   font-size: 15px;
+
   letter-spacing: 5px;
 
   text-shadow:
@@ -249,6 +272,7 @@ header {
 
 .category-buttons {
   display: flex;
+
   justify-content: center;
 
   gap: 18px;
@@ -264,11 +288,13 @@ header {
   padding: 14px 20px;
 
   border: 0;
+
   border-radius: 7px;
 
   color: white;
 
   font-family: "Press Start 2P", monospace;
+
   font-size: 11px;
 
   cursor: pointer;
@@ -345,6 +371,7 @@ header {
   color: white;
 
   font-family: "Press Start 2P", monospace;
+
   font-size: 22px;
 
   text-shadow:
@@ -367,6 +394,7 @@ header {
   width: min(1400px, 94%);
 
   margin: 0 auto 25px;
+
   padding: 0;
 }
 
@@ -376,9 +404,11 @@ header {
   padding: 14px;
 
   border-radius: 9px;
+
   border: 1px solid #c66fa9;
 
   background: #541744dd;
+
   color: white;
 
   outline: none;
@@ -424,6 +454,7 @@ header {
   background: #4d153fdd;
 
   border: 1px solid #a95289;
+
   border-radius: 13px;
 }
 
@@ -431,6 +462,7 @@ header {
   height: 190px;
 
   display: grid;
+
   place-items: center;
 
   overflow: hidden;
@@ -455,15 +487,19 @@ header {
   height: 86px;
 
   display: grid;
+
   place-items: center;
 
   border-radius: 50%;
 
   background: black;
+
   color: white;
 
   font-family: serif;
+
   font-size: 88px;
+
   line-height: 1;
 }
 
@@ -477,6 +513,7 @@ header {
   margin: 0;
 
   font-size: 13px;
+
   line-height: 1.4;
 }
 
@@ -488,6 +525,7 @@ header {
   font-size: 11px;
 
   white-space: nowrap;
+
   text-overflow: ellipsis;
 }
 
@@ -503,6 +541,7 @@ header {
 
 .price {
   font-size: 21px;
+
   font-weight: bold;
 }
 
@@ -514,12 +553,15 @@ header {
   width: 100%;
 
   margin-top: 13px;
+
   padding: 11px;
 
   border: 0;
+
   border-radius: 8px;
 
   background: #f1afd4;
+
   color: #351027;
 
   font-weight: bold;
@@ -533,6 +575,7 @@ header {
 
 .buy:hover {
   transform: translateY(-2px);
+
   filter: brightness(1.08);
 }
 
@@ -549,9 +592,11 @@ header {
   z-index: 30;
 
   pointer-events: none;
+
   user-select: none;
 
   font-family: "Press Start 2P", monospace;
+
   font-size: 14px;
 
   color: white;
@@ -595,9 +640,7 @@ header {
 /* =====================================================
    FOLHAS PIXELIZADAS
 
-   IMPORTANTE:
-   NÃO EXISTE EMOJI AQUI.
-   A FOLHA É DESENHADA COM PIXELS PELO CSS.
+   NÃO SÃO EMOJIS.
 ===================================================== */
 
 .leaf {
@@ -628,37 +671,36 @@ header {
   z-index: 50;
 
   pointer-events: none;
+
   user-select: none;
 
   opacity: 0;
 
-  font-size: 0;
+  /* ESCONDE QUALQUER EMOJI QUE O JS COLOQUE */
+  font-size: 0 !important;
+
   line-height: 0;
 
-  color: transparent;
+  color: transparent !important;
+
+  text-indent: -9999px;
+
+  overflow: visible;
 
   image-rendering: pixelated;
 
   animation-name: folhaCaindo;
+
   animation-timing-function: linear;
+
   animation-fill-mode: forwards;
 
   transform-origin: center;
 }
 
 
-/*
-   Isto também esconde qualquer texto/emoji
-   que por acidente esteja dentro de .leaf.
-*/
-
-.leaf::first-letter {
-  font-size: 0;
-}
-
-
 /* =====================================================
-   ANIMAÇÃO DAS FOLHAS
+   FOLHA CAINDO
 ===================================================== */
 
 @keyframes folhaCaindo {
@@ -667,12 +709,12 @@ header {
     opacity: 0;
 
     transform:
-      translate3d(0, 0, 0)
+      translate3d(0, -20px, 0)
       rotate(0deg);
   }
 
   8% {
-    opacity: 0.85;
+    opacity: 0.90;
   }
 
   25% {
@@ -722,10 +764,7 @@ header {
 
 
 /* =====================================================
-   REMOVE SISTEMAS ANTIGOS DE FLORES / EMOJIS
-
-   Isso impede que elementos antigos com essas classes
-   apareçam mesmo se ainda existirem no HTML.
+   MATA DEFINITIVAMENTE AS FLORES ANTIGAS
 ===================================================== */
 
 .flower,
@@ -735,6 +774,12 @@ header {
 .flower-fall,
 #flowers {
   display: none !important;
+
+  visibility: hidden !important;
+
+  opacity: 0 !important;
+
+  pointer-events: none !important;
 }
 
 
@@ -745,8 +790,7 @@ header {
 .reveal {
   opacity: 0;
 
-  transform:
-    translateY(50px);
+  transform: translateY(50px);
 
   transition:
     opacity 0.8s ease,
@@ -756,8 +800,7 @@ header {
 .reveal.apareceu {
   opacity: 1;
 
-  transform:
-    translateY(0);
+  transform: translateY(0);
 }
 
 
@@ -767,15 +810,14 @@ header {
 
 @media (max-width: 1050px) {
 
-  .produtos-grid {
-    grid-template-columns:
-      repeat(3, minmax(0, 1fr));
-  }
-
   header {
     padding: 0 5%;
   }
 
+  .produtos-grid {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
 }
 
 
@@ -831,7 +873,6 @@ header {
     grid-template-columns:
       repeat(2, minmax(0, 1fr));
   }
-
 }
 
 
@@ -856,5 +897,4 @@ header {
   .produtos-grid {
     grid-template-columns: 1fr;
   }
-
 }
