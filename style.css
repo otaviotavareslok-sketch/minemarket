@@ -345,4 +345,52 @@ body {
   height: auto;
   object-fit: cover;
 }
+/* ===== TOPO MAIS COMPACTO ===== */
+
+header {
+  min-height: 68px;
+  padding: 0 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-topo {
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+/* aproxima os elementos antes do banner */
+.hero {
+  min-height: auto !important;
+  padding: 25px 20px 22px !important;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+}
+
+.hero small {
+  margin: 0;
+}
+
+.hero p {
+  margin: 3px 0 8px;
+}
+
+.category-buttons {
+  margin: 0 !important;
+  display: flex;
+  gap: 12px;
+}
+
+/* banner começa imediatamente depois */
+.mundo-scroll {
+  margin-top: 0 !important;
+}
+
 
