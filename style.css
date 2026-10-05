@@ -899,6 +899,101 @@ header {
   }
 }/* REMOVE TODAS AS FOLHAS */
 .leaf {
+   /* =====================================================
+   CAPAS - IMAGEM GRANDE PREENCHENDO A COLUNA
+===================================================== */
+
+#aba-capas .card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Área da imagem */
+#aba-capas .capa-visual {
+  width: 100%;
+  height: 430px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background: #35102f;
+}
+
+/* Imagem da capa */
+#aba-capas .capa-visual img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  display: block;
+}
+
+/* Parte com nome, preço e botão */
+#aba-capas .card .body {
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+
+  padding: 14px;
+}
+
+/* Nome */
+#aba-capas .card .body h3 {
+  min-height: 0;
+  margin: 0 0 12px;
+}
+
+/* Descrição */
+#aba-capas .card .desc {
+  margin: 10px 0;
+}
+
+/* Preço */
+#aba-capas .card .price {
+  margin-top: auto;
+}
+
+/* Botão */
+#aba-capas .card .buy {
+  margin-top: 13px;
+}
+
+
+/* =====================================================
+   RESPONSIVO DAS CAPAS
+===================================================== */
+
+@media (max-width: 1050px) {
+
+  #aba-capas .capa-visual {
+    height: 390px;
+  }
+
+}
+
+@media (max-width: 700px) {
+
+  #aba-capas .capa-visual {
+    height: 360px;
+  }
+
+}
+
+@media (max-width: 450px) {
+
+  #aba-capas .capa-visual {
+    height: 500px;
+  }
+
+}
   display: none !important;
   visibility: hidden !important;
   opacity: 0 !important;
