@@ -668,4 +668,64 @@ header {
     padding: 7px;
     font-size: 9px;
   }
+}/* =========================
+   FOLHAS DAS ÁRVORES
+========================= */
+
+.leaf {
+  position: fixed;
+
+  z-index: 50;
+
+  pointer-events: none;
+  user-select: none;
+
+  animation-name: folhaCaindo;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+
+  filter:
+    drop-shadow(0 2px 2px rgba(0,0,0,.25));
+}
+
+
+@keyframes folhaCaindo {
+
+  0% {
+    transform:
+      translateX(0)
+      translateY(0)
+      rotate(0deg);
+  }
+
+  25% {
+    transform:
+      translateX(var(--vento))
+      translateY(22vh)
+      rotate(90deg);
+  }
+
+  50% {
+    transform:
+      translateX(calc(var(--vento) * -0.5))
+      translateY(45vh)
+      rotate(180deg);
+  }
+
+  75% {
+    transform:
+      translateX(var(--vento))
+      translateY(70vh)
+      rotate(270deg);
+  }
+
+  100% {
+    transform:
+      translateX(calc(var(--vento) * -0.4))
+      translateY(105vh)
+      rotate(var(--rotacao));
+
+    opacity: 0;
+  }
+
 }
