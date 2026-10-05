@@ -897,104 +897,238 @@ header {
   .produtos-grid {
     grid-template-columns: 1fr;
   }
-}/* REMOVE TODAS AS FOLHAS */
+/* =====================================================
+   REMOVE TODAS AS FOLHAS
+===================================================== */
+
 .leaf {
-   /* =====================================================
-   CAPAS - IMAGEM GRANDE PREENCHENDO A COLUNA
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+
+/* =====================================================
+   CAPAS
 ===================================================== */
 
 #aba-capas .card {
   display: flex;
   flex-direction: column;
+
   height: 100%;
+
   overflow: hidden;
+
+  background: #4d153fdd;
+
+  border: 1px solid #a95289;
+  border-radius: 13px;
 }
 
-/* Área da imagem */
-#aba-capas .capa-visual {
-  width: 100%;
-  height: 430px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* =====================================================
+   IMAGEM DAS CAPAS
+===================================================== */
+
+#aba-capas .capa-visual {
+  position: relative;
+
+  width: 100%;
+
+  /*
+    Como as imagens são quadradas,
+    isso mantém a proporção correta.
+  */
+  aspect-ratio: 1 / 1;
+
+  height: auto;
 
   overflow: hidden;
 
   background: #35102f;
 }
 
-/* Imagem da capa */
+
+/* IMAGEM */
+
 #aba-capas .capa-visual img {
+  display: block;
+
   width: 100%;
   height: 100%;
 
+  /*
+    Preenche TODA a largura do card
+    sem deformar a imagem.
+  */
   object-fit: cover;
+
   object-position: center;
 
-  display: block;
+  margin: 0;
+  padding: 0;
 }
 
-/* Parte com nome, preço e botão */
+
+/* =====================================================
+   INFORMAÇÕES DAS CAPAS
+===================================================== */
+
 #aba-capas .card .body {
   display: flex;
   flex-direction: column;
 
   flex: 1;
 
-  padding: 14px;
+  padding: 15px;
 }
 
-/* Nome */
+
+/* NOME */
+
 #aba-capas .card .body h3 {
   min-height: 0;
-  margin: 0 0 12px;
+
+  margin: 0 0 10px;
+
+  color: white;
+
+  font-size: 13px;
+  line-height: 1.4;
 }
 
-/* Descrição */
+
+/* DESCRIÇÃO */
+
 #aba-capas .card .desc {
-  margin: 10px 0;
+  margin: 5px 0 13px;
+
+  overflow: visible;
+
+  color: #efb8d6;
+
+  font-size: 11px;
+
+  white-space: normal;
+
+  text-overflow: unset;
 }
 
-/* Preço */
+
+/* PREÇO */
+
 #aba-capas .card .price {
   margin-top: auto;
+
+  color: white;
+
+  font-size: 21px;
+  font-weight: bold;
 }
 
-/* Botão */
+
+/* PIX */
+
+#aba-capas .card .body small {
+  margin-top: 2px;
+
+  color: #cda4ba;
+}
+
+
+/* BOTÃO */
+
 #aba-capas .card .buy {
+  width: 100%;
+
   margin-top: 13px;
+
+  padding: 12px;
+
+  border: 0;
+  border-radius: 8px;
+
+  background: #f1afd4;
+
+  color: #351027;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
+}
+
+
+#aba-capas .card .buy:hover {
+  transform: translateY(-2px);
+
+  filter: brightness(1.08);
 }
 
 
 /* =====================================================
-   RESPONSIVO DAS CAPAS
+   GRID DAS CAPAS - PC
+===================================================== */
+
+#aba-capas .produtos-grid {
+  width: min(1400px, 94%);
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 18px;
+
+  align-items: stretch;
+}
+
+
+/* =====================================================
+   TABLET
 ===================================================== */
 
 @media (max-width: 1050px) {
 
-  #aba-capas .capa-visual {
-    height: 390px;
+  #aba-capas .produtos-grid {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
   }
 
 }
+
+
+/* =====================================================
+   CELULAR / TABLET PEQUENO
+===================================================== */
 
 @media (max-width: 700px) {
 
-  #aba-capas .capa-visual {
-    height: 360px;
+  #aba-capas .produtos-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 12px;
   }
 
 }
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
 
 @media (max-width: 450px) {
 
-  #aba-capas .capa-visual {
-    height: 500px;
+  #aba-capas .produtos-grid {
+    grid-template-columns: 1fr;
   }
 
-}
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
 }
