@@ -9,99 +9,59 @@
 </head>
 
 <body>
-<div class="hg-banner">
-  <img src="ARTE%20BANNER%20FEAST%20HG.png" alt="MineMarket Hunger Games">
-</div>
+
   <div id="flowers"></div>
 
+  <!-- CABEÇALHO -->
   <header>
     <b>MINEMARKET</b>
-    <span>10 produtos</span>
+
+    <nav class="menu">
+      <button onclick="abrirAba('inicio')">INÍCIO</button>
+      <button onclick="abrirAba('capas')">CAPAS</button>
+      <button onclick="abrirAba('contas')">CONTAS</button>
+    </nav>
   </header>
 
-  <section class="hero">
-    <small>CATÁLOGO MINECRAFT</small>
-    <h1>MINEMARKET</h1>
-    <p>Contas e capas Minecraft</p>
 
-    <!-- BOTÕES -->
-    <div class="category-buttons">
-      <button onclick="abrirPopup('capas')">
-        CAPAS
-      </button>
+  <!-- ================= INÍCIO ================= -->
 
-      <button onclick="abrirPopup('contas')">
-        CONTAS
-      </button>
+  <section id="aba-inicio" class="pagina-aba ativa">
+
+    <section class="hero">
+      <small>CATÁLOGO MINECRAFT</small>
+      <h1>MINEMARKET</h1>
+      <p>Contas e capas Minecraft</p>
+
+      <div class="category-buttons">
+
+        <button onclick="abrirAba('capas')">
+          CAPAS
+        </button>
+
+        <button onclick="abrirAba('contas')">
+          CONTAS
+        </button>
+
+      </div>
+    </section>
+
+
+    <!-- BANNER HUNGER GAMES -->
+
+    <div class="hg-banner">
+      <img
+        src="ARTE%20BANNER%20FEAST%20HG.png"
+        alt="MineMarket Hunger Games"
+      >
     </div>
+
   </section>
 
 
-  <!-- POP-UP CAPAS -->
-  <div class="popup" id="popup-capas">
+  <!-- ================= CAPAS ================= -->
 
-    <div class="popup-box">
-
-      <button class="popup-close"
-        onclick="fecharPopup('capas')">×</button>
-
-      <small>MINEMARKET</small>
-
-      <h2>CAPAS MINECRAFT</h2>
-
-      <p>
-        Escolha sua capa e personalize seu personagem.
-      </p>
-
-      <button class="popup-action"
-        onclick="fecharPopup('capas')">
-        VER CAPAS
-      </button>
-
-    </div>
-
-  </div>
-
-
-  <!-- POP-UP CONTAS -->
-  <div class="popup" id="popup-contas">
-
-    <div class="popup-box">
-
-      <button class="popup-close"
-        onclick="fecharPopup('contas')">×</button>
-
-      <small>MINEMARKET</small>
-
-      <h2>CONTAS MINECRAFT</h2>
-
-      <p>
-        Veja as contas disponíveis no catálogo.
-      </p>
-
-      <button class="popup-action"
-        onclick="fecharPopup('contas')">
-        VER CONTAS
-      </button>
-
-    </div>
-
-  </div>
-
-
-  <section class="search">
-    <input
-      id="q"
-      placeholder="Pesquisar produto..."
-    >
-  </section>
-
-  <!-- ===== CATÁLOGO ===== -->
-
-<main class="catalogo">
-
-  <!-- COLUNA DE CAPAS -->
-  <section class="catalogo-coluna" id="secao-capas">
+  <section id="aba-capas" class="pagina-aba">
 
     <div class="titulo-categoria">
       <small>MINEMARKET</small>
@@ -109,15 +69,24 @@
       <p>Capas exclusivas para sua conta Minecraft.</p>
     </div>
 
-    <div id="grid-capas" class="produtos-grid">
-      <!-- As capas serão adicionadas aqui -->
+    <section class="search">
+      <input
+        id="q-capas"
+        placeholder="Pesquisar capa..."
+      >
+    </section>
+
+    <div
+      id="grid-capas"
+      class="produtos-grid">
     </div>
 
   </section>
 
 
-  <!-- COLUNA DE CONTAS -->
-  <section class="catalogo-coluna" id="secao-contas">
+  <!-- ================= CONTAS ================= -->
+
+  <section id="aba-contas" class="pagina-aba">
 
     <div class="titulo-categoria">
       <small>MINEMARKET</small>
@@ -125,11 +94,19 @@
       <p>Contas Minecraft disponíveis.</p>
     </div>
 
-    <div id="grid" class="produtos-grid"></div>
+    <section class="search">
+      <input
+        id="q"
+        placeholder="Pesquisar conta..."
+      >
+    </section>
+
+    <div
+      id="grid"
+      class="produtos-grid">
+    </div>
 
   </section>
-
-</main>
 
 
   <script src="script.js"></script>
