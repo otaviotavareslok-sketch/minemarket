@@ -897,4 +897,9 @@ header {
   .produtos-grid {
     grid-template-columns: 1fr;
   }
+}/* REMOVE TODAS AS FOLHAS */
+.leaf {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
 }
