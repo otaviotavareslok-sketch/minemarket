@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 
-/* =========================
+/* =====================================================
    BASE
-========================= */
+===================================================== */
 
 * {
   box-sizing: border-box;
@@ -18,14 +18,14 @@ body {
 }
 
 html {
-  background: #222;
+  background: #17191d;
 }
 
 body {
   color: white;
   font-family: Arial, sans-serif;
   overflow-x: hidden;
-  background: #222;
+  background: #17191d;
 }
 
 button,
@@ -34,9 +34,9 @@ input {
 }
 
 
-/* =========================
+/* =====================================================
    ABAS
-========================= */
+===================================================== */
 
 .pagina-aba {
   display: none;
@@ -47,9 +47,9 @@ input {
 }
 
 
-/* =========================
+/* =====================================================
    CABEÇALHO
-========================= */
+===================================================== */
 
 header {
   position: absolute;
@@ -72,19 +72,24 @@ header {
   border-bottom: 1px solid rgba(255, 255, 255, 0.45);
 }
 
+
+/* LOGO */
+
 .logo-topo {
   font-family: "Press Start 2P", monospace;
   font-size: 27px;
+
   color: white;
   letter-spacing: 1px;
 
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.30);
 }
 
 
-/* =========================
+/* =====================================================
    MENU SUPERIOR
-========================= */
+===================================================== */
 
 .menu {
   display: flex;
@@ -102,9 +107,12 @@ header {
   color: white;
 
   font-weight: 800;
+
   cursor: pointer;
 
-  transition: 0.2s;
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
 }
 
 .menu button:first-child {
@@ -119,45 +127,46 @@ header {
 
 .menu button:hover {
   transform: translateY(-2px);
+  filter: brightness(1.1);
 }
 
 
-/* =========================
+/* =====================================================
    INÍCIO
-========================= */
+===================================================== */
 
 #aba-inicio {
   width: 100%;
+
   margin: 0;
   padding: 0;
 
-  background: #222;
+  background: #17191d;
 }
 
 
-/* =========================
-   MUNDO / BANNER
-========================= */
+/* =====================================================
+   BANNER PRINCIPAL
+
+   banner novo2.png aparece UMA VEZ.
+===================================================== */
 
 .inicio-mundo {
   position: relative;
 
   width: 100%;
-  height: auto;
 
   margin: 0;
   padding: 0;
 
   overflow: hidden;
 
-  background: #222;
+  background: #17191d;
 }
 
 
-/*
-   A imagem existe SOMENTE como <img>.
-   Não existe background-image aqui.
-*/
+/* A imagem NÃO é background.
+   Ela existe somente como <img>. */
 
 .inicio-mundo .mundo-img {
   position: relative;
@@ -180,9 +189,9 @@ header {
 }
 
 
-/* =========================
-   CONTEÚDO SOBRE O CÉU
-========================= */
+/* =====================================================
+   TEXTO SOBRE O CÉU
+===================================================== */
 
 .inicio-conteudo {
   position: absolute;
@@ -214,7 +223,7 @@ header {
   letter-spacing: 5px;
 
   text-shadow:
-    0 2px 5px rgba(0, 0, 0, 0.4);
+    0 2px 5px rgba(0, 0, 0, 0.55);
 }
 
 .inicio-conteudo p {
@@ -223,13 +232,13 @@ header {
   font-size: 17px;
 
   text-shadow:
-    0 2px 5px rgba(0, 0, 0, 0.4);
+    0 2px 5px rgba(0, 0, 0, 0.55);
 }
 
 
-/* =========================
+/* =====================================================
    BOTÕES CAPAS / CONTAS
-========================= */
+===================================================== */
 
 .category-buttons {
   display: flex;
@@ -259,7 +268,8 @@ header {
 
   transition:
     transform 0.2s ease,
-    box-shadow 0.2s ease;
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
 }
 
 .category-buttons button:first-child {
@@ -281,41 +291,102 @@ header {
 .category-buttons button:hover {
   transform: translateY(-3px);
 
+  filter: brightness(1.08);
+
   box-shadow:
     0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
 
-/* =========================
-   FINAL DO MUNDO
-========================= */
+/* =====================================================
+   CONTINUAÇÃO DA CAVERNA
 
-/*
-   Depois que banner novo2.png terminar,
-   começa esta região.
+   IMPORTANTE:
+   NÃO USA banner novo2.png.
 
-   NÃO possui imagem de fundo.
-   Portanto o banner não pode repetir aqui.
-*/
+   Usa SOMENTE caverna.png.
+===================================================== */
 
 .fundo-pedra {
   position: relative;
 
   width: 100%;
-  min-height: 600px;
+
+  /*
+     Aumente esse valor futuramente caso
+     queira mais espaço para conteúdo.
+  */
+  min-height: 1400px;
 
   margin: 0;
   padding: 0;
 
-  background: #343434;
+  /*
+     NOVA IMAGEM:
+     continuação somente de pedra/caverna
+  */
+  background-image: url("caverna.png");
+
+  /*
+     Mantém a imagem cobrindo toda
+     a largura do site.
+  */
+  background-size: 100% auto;
+
+  /*
+     Começa pelo topo da nova caverna.
+  */
+  background-position: center top;
+
+  /*
+     A imagem continua verticalmente.
+
+     Como caverna.png NÃO possui céu,
+     nunca veremos novamente árvores,
+     personagens ou o Feast.
+  */
+  background-repeat: repeat-y;
+
+  /*
+     Caso alguma área fique descoberta,
+     fica escura como a caverna.
+  */
+  background-color: #17191d;
 
   z-index: 1;
 }
 
 
-/* =========================
-   CAPAS E CONTAS
-========================= */
+/* Pequena sombra na união das duas imagens.
+   Ajuda a esconder uma eventual linha entre
+   banner novo2.png e caverna.png. */
+
+.fundo-pedra::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 18px;
+
+  pointer-events: none;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.20),
+    transparent
+  );
+
+  z-index: 2;
+}
+
+
+/* =====================================================
+   CAPAS / CONTAS
+===================================================== */
 
 #aba-capas,
 #aba-contas {
@@ -333,12 +404,13 @@ header {
 }
 
 
-/* =========================
+/* =====================================================
    TÍTULOS
-========================= */
+===================================================== */
 
 .titulo-categoria {
   text-align: center;
+
   margin-bottom: 30px;
 }
 
@@ -361,13 +433,14 @@ header {
 
 .titulo-categoria p {
   color: #e2cfe0;
+
   font-size: 13px;
 }
 
 
-/* =========================
+/* =====================================================
    PESQUISA
-========================= */
+===================================================== */
 
 .search {
   width: min(1400px, 94%);
@@ -390,6 +463,10 @@ header {
   outline: none;
 }
 
+.search input::placeholder {
+  color: rgba(255, 255, 255, 0.65);
+}
+
 .search input:focus {
   border-color: #ff69c8;
 
@@ -398,9 +475,9 @@ header {
 }
 
 
-/* =========================
-   GRID DOS PRODUTOS
-========================= */
+/* =====================================================
+   GRID
+===================================================== */
 
 .produtos-grid {
   width: min(1400px, 94%);
@@ -416,9 +493,9 @@ header {
 }
 
 
-/* =========================
+/* =====================================================
    CARDS
-========================= */
+===================================================== */
 
 .card {
   overflow: hidden;
@@ -535,13 +612,14 @@ header {
 
 .buy:hover {
   transform: translateY(-2px);
+
   filter: brightness(1.08);
 }
 
 
-/* =========================
+/* =====================================================
    MARCA D'ÁGUA TAVARES
-========================= */
+===================================================== */
 
 .tavares-watermark {
   position: fixed;
@@ -558,7 +636,7 @@ header {
 
   color: white;
 
-  opacity: 0.16;
+  opacity: 0.12;
 
   text-shadow:
     0 0 6px #ff4fd8,
@@ -594,83 +672,144 @@ header {
 }
 
 
-/* =========================
-   FOLHAS DAS ÁRVORES
-========================= */
+/* =====================================================
+   FOLHAS PIXELADAS
 
-/*
-   NÃO EXISTE MAIS .flower.
-   Somente as folhas novas.
-*/
+   NÃO SÃO EMOJI.
+   A folha é desenhada pelo CSS.
+===================================================== */
 
 .leaf {
   position: fixed;
+
+  top: -20px;
+
+  /*
+     O JS pode alterar left, duração,
+     --vento e --rotacao.
+  */
+
+  width: 7px;
+  height: 7px;
+
+  /*
+     Pixel central
+  */
+  background: #4c9b3c;
+
+  /*
+     Outros pixels formam uma folhinha
+     Minecraft.
+  */
+  box-shadow:
+    7px 0 #347c31,
+    -7px 0 #61ad45,
+    0 7px #347c31,
+    7px 7px #28672b,
+    -7px 7px #438f36;
+
+  border-radius: 0;
 
   z-index: 50;
 
   pointer-events: none;
   user-select: none;
 
-  line-height: 1;
+  opacity: 0;
+
+  image-rendering: pixelated;
+
+  filter:
+    drop-shadow(
+      0 2px 1px rgba(0, 0, 0, 0.18)
+    );
 
   animation-name: folhaCaindo;
   animation-timing-function: linear;
   animation-fill-mode: forwards;
 
-  filter:
-    drop-shadow(0 2px 2px rgba(0, 0, 0, 0.25));
+  transform-origin: center;
 }
+
+
+/* Algumas folhas um pouco menores */
+
+.leaf:nth-of-type(3n) {
+  transform: scale(0.75);
+}
+
+
+/* =====================================================
+   ANIMAÇÃO DAS FOLHAS
+
+   Movimento de vento.
+===================================================== */
 
 @keyframes folhaCaindo {
 
   0% {
+    opacity: 0;
+
     transform:
-      translateX(0)
-      translateY(0)
+      translate(0, 0)
       rotate(0deg);
+  }
+
+  8% {
+    opacity: 0.75;
   }
 
   25% {
     transform:
-      translateX(var(--vento))
-      translateY(22vh)
+      translate(
+        var(--vento, 25px),
+        22vh
+      )
       rotate(90deg);
   }
 
   50% {
     transform:
-      translateX(calc(var(--vento) * -0.5))
-      translateY(45vh)
+      translate(
+        calc(var(--vento, 25px) * -0.6),
+        46vh
+      )
       rotate(180deg);
   }
 
   75% {
     transform:
-      translateX(var(--vento))
-      translateY(70vh)
+      translate(
+        var(--vento, 25px),
+        72vh
+      )
       rotate(270deg);
+
+    opacity: 0.65;
   }
 
   100% {
     transform:
-      translateX(calc(var(--vento) * -0.4))
-      translateY(105vh)
-      rotate(var(--rotacao));
+      translate(
+        calc(var(--vento, 25px) * -0.4),
+        108vh
+      )
+      rotate(var(--rotacao, 360deg));
 
     opacity: 0;
   }
 }
 
 
-/* =========================
-   ELEMENTOS REVELADOS
-   CONFORME ROLA O SITE
-========================= */
+/* =====================================================
+   REVEAL NO SCROLL
+===================================================== */
 
 .reveal {
   opacity: 0;
 
-  transform: translateY(50px);
+  transform:
+    translateY(50px);
 
   transition:
     opacity 0.8s ease,
@@ -680,13 +819,14 @@ header {
 .reveal.apareceu {
   opacity: 1;
 
-  transform: translateY(0);
+  transform:
+    translateY(0);
 }
 
 
-/* =========================
+/* =====================================================
    RESPONSIVO
-========================= */
+===================================================== */
 
 @media (max-width: 1050px) {
 
@@ -730,6 +870,7 @@ header {
 
   .inicio-conteudo small {
     font-size: 10px;
+
     letter-spacing: 2px;
   }
 
@@ -754,6 +895,10 @@ header {
       repeat(2, minmax(0, 1fr));
   }
 
+  .fundo-pedra {
+    min-height: 1000px;
+  }
+
 }
 
 
@@ -761,10 +906,6 @@ header {
 
   .logo-topo {
     font-size: 13px;
-  }
-
-  .produtos-grid {
-    grid-template-columns: 1fr;
   }
 
   .menu button {
@@ -779,29 +920,8 @@ header {
     font-size: 8px;
   }
 
-}/* =========================================
-   CONTINUAÇÃO DA CAVERNA ATÉ O FIM
-========================================= */
+  .produtos-grid {
+    grid-template-columns: 1fr;
+  }
 
-.fundo-pedra {
-  width: 100%;
-  min-height: 100vh;
-
-  margin: 0;
-  padding: 0;
-
-  /* usa a mesma imagem */
-  background-image: url("banner%20novo2.png");
-
-  /* aumenta para a mesma largura do banner */
-  background-size: 100% auto;
-
-  /* mostra somente a região de baixo da imagem */
-  background-position: center bottom;
-
-  /* não repete */
-  background-repeat: no-repeat;
-
-  /* cor de segurança atrás da imagem */
-  background-color: #202226;
 }
