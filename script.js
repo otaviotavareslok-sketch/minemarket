@@ -66,3 +66,43 @@ document.addEventListener("keydown", function(event) {
   }
 
 });
+
+
+
+// ===== NAVEGAÇÃO ENTRE INÍCIO, CAPAS E CONTAS =====
+
+function abrirAba(aba) {
+  const inicio = document.getElementById("aba-inicio");
+  const capas = document.getElementById("aba-capas");
+  const contas = document.getElementById("aba-contas");
+
+  // Esconde todas
+  inicio.style.display = "none";
+  capas.style.display = "none";
+  contas.style.display = "none";
+
+  // Mostra apenas a escolhida
+  if (aba === "inicio") {
+    inicio.style.display = "block";
+  }
+
+  if (aba === "capas") {
+    capas.style.display = "block";
+  }
+
+  if (aba === "contas") {
+    contas.style.display = "block";
+  }
+
+  // Volta para o topo
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+
+// Ao abrir o site, começa no INÍCIO
+document.addEventListener("DOMContentLoaded", function () {
+  abrirAba("inicio");
+});
