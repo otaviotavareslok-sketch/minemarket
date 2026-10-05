@@ -23,7 +23,33 @@
   0% {
     transform: translateY(-60px) rotate(-8deg);
   }/* ===== CATÁLOGO EM DUAS COLUNAS ===== */
+/* ===== MUNDO MINEMARKET ===== */
 
+.mundo-scroll {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.mundo-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+/* elementos que aparecerão durante o scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.apareceu {
+  opacity: 1;
+  transform: translateY(0);
+}
 .catalogo {
   width: min(1400px, 94%);
   margin: 50px auto;
