@@ -14,12 +14,8 @@ function criarTavares() {
   marca.textContent = "TAVARES";
 
   marca.style.left = Math.random() * 95 + "vw";
-
-  marca.style.animationDuration =
-    (12 + Math.random() * 10) + "s";
-
-  marca.style.opacity =
-    0.08 + Math.random() * 0.08;
+  marca.style.animationDuration = (12 + Math.random() * 10) + "s";
+  marca.style.opacity = 0.08 + Math.random() * 0.08;
 
   document.body.appendChild(marca);
 
@@ -32,73 +28,10 @@ setInterval(criarTavares, 2500);
 
 
 // ==========================================
-// FOLHAS CAINDO DAS ÁRVORES
-// ==========================================
-
-function criarFolha() {
-
-  const inicio = document.getElementById("aba-inicio");
-
-  if (!inicio || inicio.style.display === "none") {
-    return;
-  }
-
-  const folha = document.createElement("span");
-
-  folha.className = "leaf";
-  folha.textContent = "🍃";
-
-  const ladoEsquerdo = Math.random() < 0.5;
-
-  if (ladoEsquerdo) {
-
-    folha.style.left =
-      (2 + Math.random() * 25) + "vw";
-
-  } else {
-
-    folha.style.left =
-      (73 + Math.random() * 25) + "vw";
-
-  }
-
-  folha.style.top =
-    (75 + Math.random() * 100) + "px";
-
-  folha.style.fontSize =
-    (10 + Math.random() * 13) + "px";
-
-  folha.style.animationDuration =
-    (7 + Math.random() * 6) + "s";
-
-  folha.style.setProperty(
-    "--vento",
-    ((Math.random() * 140) - 70) + "px"
-  );
-
-  folha.style.setProperty(
-    "--rotacao",
-    (250 + Math.random() * 400) + "deg"
-  );
-
-  folha.style.opacity =
-    0.45 + Math.random() * 0.4;
-
-  document.body.appendChild(folha);
-
-  setTimeout(() => {
-    folha.remove();
-  }, 14000);
-}
-
-setInterval(criarFolha, 550);
-
-
-// ==========================================
 // CONTAS MINECRAFT
 // ==========================================
 
-const p = [
+const produtosContas = [
 
   {
     name: "MINECRAFT FULL ACESSO + PAN CAPE",
@@ -174,89 +107,10 @@ const p = [
 
 
 // ==========================================
-// MOSTRAR CONTAS
-// ==========================================
-
-const gridContas = document.querySelector("#grid");
-const pesquisaContas = document.querySelector("#q");
-
-
-function mostrarContas() {
-
-  if (!gridContas) {
-    return;
-  }
-
-  let pesquisa = "";
-
-  if (pesquisaContas) {
-    pesquisa = pesquisaContas.value.toLowerCase();
-  }
-
-  const produtosFiltrados = p.filter(produto =>
-    produto.name.toLowerCase().includes(pesquisa)
-  );
-
-  gridContas.innerHTML = produtosFiltrados.map(produto => `
-
-    <article class="card">
-
-      <div class="visual">
-        <div class="yin">☯</div>
-      </div>
-
-      <div class="body">
-
-        <h3>
-          ${produto.name}
-        </h3>
-
-        <p class="desc">
-          ${produto.desc}
-        </p>
-
-        <div class="old">
-          ${produto.old}
-        </div>
-
-        <div class="price">
-          ${produto.price}
-        </div>
-
-        <small>
-          à vista no PIX
-        </small>
-
-        <button class="buy">
-          Comprar agora
-        </button>
-
-      </div>
-
-    </article>
-
-  `).join("");
-
-}
-
-
-if (pesquisaContas) {
-
-  pesquisaContas.addEventListener(
-    "input",
-    mostrarContas
-  );
-
-}
-
-mostrarContas();
-
-
-// ==========================================
 // CAPAS MINECRAFT
 // ==========================================
 
-const capas = [
+const produtosCapas = [
 
   {
     name: "TWITCH",
@@ -339,17 +193,76 @@ const capas = [
 
 
 // ==========================================
+// MOSTRAR CONTAS
+// ==========================================
+
+function mostrarContas() {
+
+  const gridContas = document.getElementById("grid");
+  const pesquisaContas = document.getElementById("q");
+
+  if (!gridContas) {
+    return;
+  }
+
+  let pesquisa = "";
+
+  if (pesquisaContas) {
+    pesquisa = pesquisaContas.value.toLowerCase();
+  }
+
+  const produtosFiltrados = produtosContas.filter(produto =>
+    produto.name.toLowerCase().includes(pesquisa)
+  );
+
+  gridContas.innerHTML = produtosFiltrados.map(produto => `
+
+    <article class="card">
+
+      <div class="visual">
+        <div class="yin">☯</div>
+      </div>
+
+      <div class="body">
+
+        <h3>${produto.name}</h3>
+
+        <p class="desc">
+          ${produto.desc}
+        </p>
+
+        <div class="old">
+          ${produto.old}
+        </div>
+
+        <div class="price">
+          ${produto.price}
+        </div>
+
+        <small>
+          à vista no PIX
+        </small>
+
+        <button class="buy">
+          Comprar agora
+        </button>
+
+      </div>
+
+    </article>
+
+  `).join("");
+}
+
+
+// ==========================================
 // MOSTRAR CAPAS
 // ==========================================
 
-const gridCapas =
-  document.querySelector("#grid-capas");
-
-const pesquisaCapas =
-  document.querySelector("#q-capas");
-
-
 function mostrarCapas() {
+
+  const gridCapas = document.getElementById("grid-capas");
+  const pesquisaCapas = document.getElementById("q-capas");
 
   if (!gridCapas) {
     return;
@@ -358,105 +271,75 @@ function mostrarCapas() {
   let pesquisa = "";
 
   if (pesquisaCapas) {
-    pesquisa =
-      pesquisaCapas.value.toLowerCase();
+    pesquisa = pesquisaCapas.value.toLowerCase();
   }
 
-  const capasFiltradas =
-    capas.filter(capa =>
-      capa.name
-        .toLowerCase()
-        .includes(pesquisa)
-    );
-
-
-  gridCapas.innerHTML =
-    capasFiltradas.map(capa => `
-
-      <article class="card capa-card">
-
-        <div class="visual capa-visual">
-
-          <img
-            src="${encodeURI(capa.image)}"
-            alt="${capa.name}"
-            loading="lazy"
-          >
-
-        </div>
-
-
-        <div class="body">
-
-          <h3>
-            ${capa.name}
-          </h3>
-
-          <p class="desc">
-            ${capa.desc}
-          </p>
-
-          <div class="price">
-            ${capa.price}
-          </div>
-
-          <small>
-            à vista no PIX
-          </small>
-
-          <button class="buy">
-            Comprar agora
-          </button>
-
-        </div>
-
-      </article>
-
-    `).join("");
-
-}
-
-
-if (pesquisaCapas) {
-
-  pesquisaCapas.addEventListener(
-    "input",
-    mostrarCapas
+  const capasFiltradas = produtosCapas.filter(capa =>
+    capa.name.toLowerCase().includes(pesquisa)
   );
 
+  gridCapas.innerHTML = capasFiltradas.map(capa => `
+
+    <article class="card capa-card">
+
+      <div class="visual capa-visual">
+
+        <img
+          src="${capa.image}"
+          alt="Capa ${capa.name}"
+          loading="lazy"
+        >
+
+      </div>
+
+      <div class="body">
+
+        <h3>${capa.name}</h3>
+
+        <p class="desc">
+          ${capa.desc}
+        </p>
+
+        <div class="price">
+          ${capa.price}
+        </div>
+
+        <small>
+          à vista no PIX
+        </small>
+
+        <button class="buy">
+          Comprar agora
+        </button>
+
+      </div>
+
+    </article>
+
+  `).join("");
 }
-
-
-mostrarCapas();
 
 
 // ==========================================
 // NAVEGAÇÃO
-// INÍCIO / CAPAS / CONTAS
 // ==========================================
 
 function abrirAba(aba) {
 
-  const inicio =
-    document.getElementById("aba-inicio");
-
-  const abaCapas =
-    document.getElementById("aba-capas");
-
-  const contas =
-    document.getElementById("aba-contas");
-
+  const inicio = document.getElementById("aba-inicio");
+  const paginaCapas = document.getElementById("aba-capas");
+  const paginaContas = document.getElementById("aba-contas");
 
   if (inicio) {
     inicio.style.display = "none";
   }
 
-  if (abaCapas) {
-    abaCapas.style.display = "none";
+  if (paginaCapas) {
+    paginaCapas.style.display = "none";
   }
 
-  if (contas) {
-    contas.style.display = "none";
+  if (paginaContas) {
+    paginaContas.style.display = "none";
   }
 
 
@@ -464,34 +347,43 @@ function abrirAba(aba) {
     inicio.style.display = "block";
   }
 
-  if (aba === "capas" && abaCapas) {
-    abaCapas.style.display = "block";
+  if (aba === "capas" && paginaCapas) {
+    paginaCapas.style.display = "block";
+    mostrarCapas();
   }
 
-  if (aba === "contas" && contas) {
-    contas.style.display = "block";
+  if (aba === "contas" && paginaContas) {
+    paginaContas.style.display = "block";
+    mostrarContas();
   }
-
 
   window.scrollTo({
     top: 0,
     behavior: "smooth"
   });
-
 }
 
 
 // ==========================================
-// INICIAR SITE
+// INICIAR MINEMARKET
 // ==========================================
 
-document.addEventListener(
-  "DOMContentLoaded",
-  function () {
+document.addEventListener("DOMContentLoaded", function () {
 
-    abrirAba("inicio");
-    mostrarContas();
-    mostrarCapas();
+  const pesquisaContas = document.getElementById("q");
+  const pesquisaCapas = document.getElementById("q-capas");
 
+  if (pesquisaContas) {
+    pesquisaContas.addEventListener("input", mostrarContas);
   }
-);
+
+  if (pesquisaCapas) {
+    pesquisaCapas.addEventListener("input", mostrarCapas);
+  }
+
+  mostrarContas();
+  mostrarCapas();
+
+  abrirAba("inicio");
+
+});
