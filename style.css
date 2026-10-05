@@ -1,79 +1,311 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');*{box-sizing:border-box}body{margin:0;min-height:100vh;background:linear-gradient(145deg,#2b0b32,#82306d,#a5427d);color:white;font-family:Arial,sans-serif;overflow-x:hidden}header{height:68px;padding:0 5%;display:flex;align-items:center;justify-content:space-between;background:#4b123edd;border-bottom:1px solid #bd68a1;position:sticky;top:0;z-index:5}header b,.hero h1{font-family:'Press Start 2P',monospace}.hero{text-align:center;padding:50px 15px 25px;position:relative;z-index:1}.hero small{color:#f4add5;letter-spacing:2px}.hero h1{font-size:clamp(28px,5vw,50px);color:#ffc0e2}.hero p{color:#f6d1e5}.search{padding:10px 5%;position:relative;z-index:1}.search input{width:min(430px,100%);padding:14px;border-radius:9px;border:1px solid #c66fa9;background:#541744dd;color:#fff}main{position:relative;z-index:1;padding:20px 5% 70px;display:grid;grid-template-columns:repeat(5,1fr);gap:15px}.card{background:#4d153fdd;border:1px solid #a95289;border-radius:13px;overflow:hidden}.visual{height:150px;background:linear-gradient(135deg,#78255f,#35102f);display:grid;place-items:center}.yin{font-size:88px;line-height:1;color:#fff;background:#000;border-radius:50%;width:86px;height:86px;display:grid;place-items:center;font-family:serif}.body{padding:14px}.body h3{font-size:13px;line-height:1.4;min-height:55px;margin:0}.desc{font-size:11px;color:#efb8d6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.old{text-decoration:line-through;color:#c198b0;font-size:12px;margin-top:12px}.price{font-size:21px;font-weight:bold}.body small{color:#cda4ba}.buy{width:100%;margin-top:13px;padding:11px;border:0;border-radius:8px;background:#f1afd4;color:#351027;font-weight:bold}.flower{position:fixed;top:-40px;z-index:0;opacity:.25;pointer-events:none;animation:fall linear infinite}@keyframes fall{to{transform:translate(30px,110vh) rotate(360deg)}}@media(max-width:1050px){main{grid-template-columns:repeat(3,1fr)}}@media(max-width:650px){main{grid-template-columns:repeat(2,1fr)}}@media(max-width:430px){main{grid-template-columns:1fr}}/* TAVARES - marca d'água flutuante */
-.tavares-watermark {
-  position: fixed;
-  top: -60px;
-  z-index: 1;
-  pointer-events: none;
-  user-select: none;
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-  font-family: "Press Start 2P", cursive;
-  font-size: 14px;
-  color: white;
+/* =========================
+   BASE
+========================= */
 
-  text-shadow:
-    0 0 6px #ff4fd8,
-    0 0 12px #9b5cff;
-
-  animation-name: tavaresFall;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
+* {
+  box-sizing: border-box;
 }
 
-@keyframes tavaresFall {
-  0% {
-    transform: translateY(-60px) rotate(-8deg);
-  }/* ===== CATÁLOGO EM DUAS COLUNAS ===== */
-/* ===== MUNDO MINEMARKET ===== */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
 
-.mundo-scroll {
+body {
+  color: white;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+  background: #222;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+
+/* =========================
+   ABAS
+========================= */
+
+.pagina-aba {
+  display: none;
+}
+
+.pagina-aba.ativa {
+  display: block;
+}
+
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 74px;
+
+  padding: 0 12%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  z-index: 100;
+
+  background: transparent;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.logo-topo {
+  font-family: "Press Start 2P", monospace;
+  font-size: 27px;
+  color: white;
+  letter-spacing: 1px;
+
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+/* MENU SUPERIOR */
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.menu button {
+  padding: 10px 17px;
+
+  border: 0;
+  border-radius: 5px;
+
+  background: rgba(0, 90, 190, 0.70);
+  color: white;
+
+  font-weight: 800;
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.menu button:first-child {
+  background: linear-gradient(
+    90deg,
+    #ff68c8,
+    #ed5be6
+  );
+
+  color: #29214d;
+}
+
+.menu button:hover {
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   INÍCIO
+========================= */
+
+#aba-inicio {
   width: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+
+  background: #222;
 }
 
-.mundo-img {
+
+/* CONTAINER DA IMAGEM */
+
+.inicio-mundo {
+  position: relative;
+
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+
+  background: #222;
+}
+
+
+/* IMPORTANTE:
+   A IMAGEM EXISTE APENAS COMO <img>.
+   NÃO É BACKGROUND.
+*/
+
+.inicio-mundo .mundo-img {
   display: block;
+
   width: 100%;
   height: auto;
+
   margin: 0;
+  padding: 0;
+
+  object-fit: contain;
+
+  background: none;
 }
 
-/* elementos que aparecerão durante o scroll */
-.reveal {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+
+/* =========================
+   CONTEÚDO SOBRE O CÉU
+========================= */
+
+.inicio-conteudo {
+  position: absolute;
+
+  top: 100px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  z-index: 20;
+
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  color: white;
+
+  pointer-events: none;
 }
 
-.reveal.apareceu {
-  opacity: 1;
-  transform: translateY(0);
-}
-.catalogo {
-  width: min(1400px, 94%);
-  margin: 50px auto;
+.inicio-conteudo small {
+  margin: 0 0 13px;
 
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 35px;
+  font-size: 15px;
+  letter-spacing: 5px;
 
-  align-items: start;
+  text-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.4);
 }
 
-.catalogo-coluna {
-  min-width: 0;
+.inicio-conteudo p {
+  margin: 0 0 18px;
 
-  padding: 25px;
+  font-size: 17px;
 
-  background: rgba(12, 7, 20, 0.75);
+  text-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.4);
+}
 
-  border: 1px solid rgba(155, 92, 255, 0.35);
-  border-radius: 16px;
+
+/* =========================
+   BOTÕES CAPAS / CONTAS
+========================= */
+
+.category-buttons {
+  display: flex;
+  justify-content: center;
+
+  gap: 18px;
+
+  margin: 0;
+
+  pointer-events: auto;
+}
+
+.category-buttons button {
+  width: 160px;
+
+  padding: 14px 20px;
+
+  border: 0;
+  border-radius: 7px;
+
+  color: white;
+
+  font-family: "Press Start 2P", monospace;
+  font-size: 11px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.category-buttons button:first-child {
+  background: linear-gradient(
+    90deg,
+    #ff69c8,
+    #e84fe1
+  );
+}
+
+.category-buttons button:last-child {
+  background: linear-gradient(
+    90deg,
+    #a25cff,
+    #704cff
+  );
+}
+
+.category-buttons button:hover {
+  transform: translateY(-3px);
 
   box-shadow:
-    0 0 25px rgba(155, 92, 255, 0.10);
+    0 8px 20px rgba(0, 0, 0, 0.25);
 }
+
+
+/* =========================
+   FINAL DO MUNDO
+========================= */
+
+/*
+  Quando adicionarmos a textura de pedra,
+  ela entrará aqui DEPOIS da imagem.
+*/
+
+.fundo-pedra {
+  width: 100%;
+  min-height: 600px;
+
+  background-color: #343434;
+}
+
+
+/* =========================
+   CAPAS E CONTAS
+========================= */
+
+#aba-capas,
+#aba-contas {
+  min-height: 100vh;
+
+  padding: 110px 5% 70px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #2b0b32,
+      #82306d,
+      #a5427d
+    );
+}
+
+
+/* TÍTULOS */
 
 .titulo-categoria {
   text-align: center;
@@ -89,7 +321,7 @@
 
   color: white;
 
-  font-family: "Press Start 2P", cursive;
+  font-family: "Press Start 2P", monospace;
   font-size: 22px;
 
   text-shadow:
@@ -98,510 +330,342 @@
 }
 
 .titulo-categoria p {
-  color: #aaa;
+  color: #e2cfe0;
   font-size: 13px;
 }
 
 
-/* PRODUTOS DENTRO DE CADA COLUNA */
+/* =========================
+   PESQUISA
+========================= */
+
+.search {
+  width: min(1400px, 94%);
+
+  margin: 0 auto 25px;
+  padding: 0;
+}
+
+.search input {
+  width: min(430px, 100%);
+
+  padding: 14px;
+
+  border-radius: 9px;
+  border: 1px solid #c66fa9;
+
+  background: #541744dd;
+  color: white;
+}
+
+
+/* =========================
+   GRID DOS PRODUTOS
+========================= */
 
 .produtos-grid {
+  width: min(1400px, 94%);
+
+  margin: 0 auto;
+
   display: grid;
 
   grid-template-columns:
-    repeat(2, minmax(0, 1fr));
+    repeat(4, minmax(0, 1fr));
 
   gap: 18px;
 }
 
 
-/* CELULAR */
+/* =========================
+   CARDS
+========================= */
 
-@media (max-width: 900px) {
+.card {
+  overflow: hidden;
 
-  .catalogo {
-    grid-template-columns: 1fr;
-  }
+  background: #4d153fdd;
 
+  border: 1px solid #a95289;
+  border-radius: 13px;
 }
 
-@media (max-width: 600px) {
+.visual {
+  height: 190px;
+
+  display: grid;
+  place-items: center;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      #78255f,
+      #35102f
+    );
+}
+
+.visual img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.yin {
+  width: 86px;
+  height: 86px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: black;
+  color: white;
+
+  font-family: serif;
+  font-size: 88px;
+  line-height: 1;
+}
+
+.body {
+  padding: 14px;
+}
+
+.body h3 {
+  min-height: 55px;
+
+  margin: 0;
+
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.desc {
+  overflow: hidden;
+
+  color: #efb8d6;
+
+  font-size: 11px;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.old {
+  margin-top: 12px;
+
+  color: #c198b0;
+
+  font-size: 12px;
+
+  text-decoration: line-through;
+}
+
+.price {
+  font-size: 21px;
+  font-weight: bold;
+}
+
+.body small {
+  color: #cda4ba;
+}
+
+.buy {
+  width: 100%;
+
+  margin-top: 13px;
+  padding: 11px;
+
+  border: 0;
+  border-radius: 8px;
+
+  background: #f1afd4;
+  color: #351027;
+
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+
+/* =========================
+   FLORES
+========================= */
+
+.flower {
+  position: fixed;
+
+  top: -40px;
+
+  z-index: 2;
+
+  opacity: 0.18;
+
+  pointer-events: none;
+
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform:
+      translate(30px, 110vh)
+      rotate(360deg);
+  }
+}
+
+
+/* =========================
+   TAVARES
+========================= */
+
+.tavares-watermark {
+  position: fixed;
+
+  top: -60px;
+
+  z-index: 3;
+
+  pointer-events: none;
+  user-select: none;
+
+  font-family: "Press Start 2P", monospace;
+  font-size: 14px;
+
+  color: white;
+
+  opacity: 0.16;
+
+  text-shadow:
+    0 0 6px #ff4fd8,
+    0 0 12px #9b5cff;
+
+  animation:
+    tavaresFall linear forwards;
+}
+
+@keyframes tavaresFall {
+
+  0% {
+    transform:
+      translateY(-60px)
+      rotate(-8deg);
+  }
+
+  50% {
+    transform:
+      translateY(55vh)
+      translateX(20px)
+      rotate(5deg);
+  }
+
+  100% {
+    transform:
+      translateY(115vh)
+      translateX(-15px)
+      rotate(-6deg);
+  }
+}
+
+
+/* =========================
+   ELEMENTOS REVELADOS NO SCROLL
+========================= */
+
+.reveal {
+  opacity: 0;
+
+  transform: translateY(50px);
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.reveal.apareceu {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 1050px) {
+
+  .produtos-grid {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+
+  header {
+    padding: 0 5%;
+  }
+}
+
+
+@media (max-width: 700px) {
+
+  header {
+    height: 65px;
+  }
+
+  .logo-topo {
+    font-size: 17px;
+  }
+
+  .menu {
+    gap: 4px;
+  }
+
+  .menu button {
+    padding: 8px 9px;
+    font-size: 11px;
+  }
+
+  .inicio-conteudo {
+    top: 78px;
+  }
+
+  .inicio-conteudo small {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  .inicio-conteudo p {
+    font-size: 13px;
+  }
+
+  .category-buttons {
+    gap: 8px;
+  }
+
+  .category-buttons button {
+    width: 120px;
+    padding: 11px 10px;
+    font-size: 9px;
+  }
+
+  .produtos-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+@media (max-width: 450px) {
 
   .produtos-grid {
     grid-template-columns: 1fr;
   }
 
-}
-
-  50% {
-    transform: translateY(55vh) translateX(20px) rotate(5deg);
-  }
-
-  100% {
-    transform: translateY(115vh) translateX(-15px) rotate(-6deg);
+  .menu button {
+    padding: 7px;
+    font-size: 9px;
   }
 }
-/* ===== FUNDO ANIMADO MINEKARKET ===== */
-
-html, body {
-    margin: 0;
-    padding: 0;
-    min-height: 100%;
-}
-
-body {
-    position: relative;
-    background-color: #050505;
-}/* ===== BOTÕES DE CATEGORIA ===== */
-
-.category-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 25px;
-}
-
-.category-buttons button {
-  background: linear-gradient(135deg, #9b5cff, #ff4fd8);
-  color: white;
-  border: none;
-  padding: 14px 30px;
-  font-family: "Press Start 2P", cursive;
-  font-size: 11px;
-  cursor: pointer;
-  border-radius: 8px;
-
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.category-buttons button:hover {
-  transform: translateY(-3px) scale(1.04);
-  box-shadow:
-    0 0 15px #9b5cff,
-    0 0 25px #ff4fd8;
-}
-
-
-/* ===== FUNDO DO POP-UP ===== */
-
-.popup {
-  display: none;
-
-  position: fixed;
-  inset: 0;
-
-  background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(6px);
-
-  z-index: 9999;
-
-  align-items: center;
-  justify-content: center;
-}
-
-
-/* Quando o popup estiver aberto */
-
-.popup.ativo {
-  display: flex;
-}
-
-
-/* ===== CAIXA DO POP-UP ===== */
-
-.popup-box {
-  position: relative;
-
-  width: min(500px, 85%);
-  padding: 40px 30px;
-
-  text-align: center;
-
-  background:
-    linear-gradient(
-      145deg,
-      #160d25,
-      #09050f
-    );
-
-  border: 2px solid #9b5cff;
-  border-radius: 14px;
-
-  box-shadow:
-    0 0 25px rgba(155, 92, 255, 0.5),
-    0 0 50px rgba(255, 79, 216, 0.2);
-
-  animation: popupEntrada 0.25s ease;
-}
-
-.popup-box small {
-  color: #ff4fd8;
-}
-
-.popup-box h2 {
-  margin: 20px 0;
-
-  color: white;
-
-  font-family: "Press Start 2P", cursive;
-  font-size: 20px;
-
-  text-shadow:
-    0 0 10px #9b5cff,
-    0 0 20px #ff4fd8;
-}
-
-.popup-box p {
-  color: #d6cbe5;
-  line-height: 1.7;
-}
-
-
-/* ===== BOTÃO X ===== */
-
-.popup-close {
-  position: absolute;
-
-  top: 12px;
-  right: 15px;
-
-  border: none;
-  background: transparent;
-
-  color: white;
-  font-size: 28px;
-
-  cursor: pointer;
-}
-
-.popup-close:hover {
-  color: #ff4fd8;
-}
-
-
-/* ===== BOTÃO DO POP-UP ===== */
-
-.popup-action {
-  margin-top: 20px;
-
-  padding: 14px 25px;
-
-  border: none;
-  border-radius: 7px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #9b5cff,
-      #ff4fd8
-    );
-
-  color: white;
-
-  font-family: "Press Start 2P", cursive;
-  font-size: 10px;
-
-  cursor: pointer;
-
-  transition: 0.2s;
-}
-
-.popup-action:hover {
-  transform: scale(1.05);
-
-  box-shadow:
-    0 0 15px #9b5cff,
-    0 0 25px #ff4fd8;
-}
-
-
-/* ===== ANIMAÇÃO ===== */
-
-@keyframes popupEntrada {
-
-  from {
-    opacity: 0;
-    transform: scale(0.85);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-} /* ===== BANNER HUNGER GAMES ===== */
-
-.hg-banner {
-  width: 88%;
-  max-width: 1200px;
-  margin: 25px auto 35px;
-  overflow: hidden;
-  border-radius: 8px;
-}
-
-.hg-banner img {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-/* ===== TOPO MAIS COMPACTO ===== */
-
-header {
-  min-height: 68px;
-  padding: 0 5%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo-topo {
-  font-size: 30px;
-  font-weight: 900;
-  letter-spacing: 1px;
-}
-
-/* aproxima os elementos antes do banner */
-.hero {
-  min-height: auto !important;
-  padding: 25px 20px 22px !important;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  gap: 7px;
-}
-
-.hero small {
-  margin: 0;
-}
-
-.hero p {
-  margin: 3px 0 8px;
-}
-
-.category-buttons {
-  margin: 0 !important;
-  display: flex;
-  gap: 12px;
-}
-
-/* banner começa imediatamente depois */
-.mundo-scroll {
-  margin-top: 0 !important;
-}/* =========================================
-   NOVO INÍCIO MINEMARKET
-   ========================================= */
-
-#aba-inicio {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-
-/* MUNDO */
-
-.inicio-mundo {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-
-  /* mesma cor aproximada do céu */
-  background: #45a9f5;
-}
-
-
-/* IMAGEM */
-
-.inicio-mundo .mundo-img {
-  display: block;
-
-  width: 100%;
-  height: auto;
-
-  margin: 0;
-  padding: 0;
-}
-
-
-/* CONTEÚDO QUE FICA SOBRE O CÉU */
-
-.inicio-conteudo {
-  position: absolute;
-
-  top: 35px;
-  left: 50%;
-
-  transform: translateX(-50%);
-
-  z-index: 10;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  width: 100%;
-
-  text-align: center;
-
-  color: white;
-}
-
-
-/* CATÁLOGO MINECRAFT */
-
-.inicio-conteudo small {
-  font-size: 14px;
-
-  letter-spacing: 4px;
-
-  margin-bottom: 10px;
-
-  text-shadow:
-    0 2px 4px rgba(0,0,0,.35);
-}
-
-
-/* SUBTÍTULO */
-
-.inicio-conteudo p {
-  font-size: 17px;
-
-  margin: 0 0 15px;
-
-  text-shadow:
-    0 2px 4px rgba(0,0,0,.35);
-}
-
-
-/* BOTÕES */
-
-.inicio-conteudo .category-buttons {
-  display: flex;
-
-  gap: 18px;
-
-  margin: 0;
-}
-
-
-.inicio-conteudo .category-buttons button {
-  width: 150px;
-
-  padding: 13px 20px;
-
-  border: none;
-
-  border-radius: 8px;
-
-  font-weight: 800;
-
-  cursor: pointer;
-
-  transition:
-    transform .2s ease,
-    box-shadow .2s ease;
-}
-
-
-/* CAPAS */
-
-.inicio-conteudo .category-buttons button:first-child {
-  background: linear-gradient(
-    90deg,
-    #ff63c7,
-    #d94bdf
-  );
-
-  color: white;
-}
-
-
-/* CONTAS */
-
-.inicio-conteudo .category-buttons button:last-child {
-  background: linear-gradient(
-    90deg,
-    #9a5cff,
-    #704cff
-  );
-
-  color: white;
-}
-
-
-/* ANIMAÇÃO DOS BOTÕES */
-
-.inicio-conteudo .category-buttons button:hover {
-  transform: translateY(-3px);
-
-  box-shadow:
-    0 8px 20px rgba(0,0,0,.25);
-}
-
-
-/* ===== HEADER ===== */
-
-header {
-  background: #2499ef !important;
-
-  border-bottom:
-    1px solid rgba(255,255,255,.35);
-
-  position: relative;
-
-  z-index: 20;
-}
-
-
-.logo-topo {
-  color: white;
-}
-
-
-/* BOTÕES DO MENU */
-
-.menu button {
-  background: rgba(0,80,180,.45);
-
-  color: white;
-
-  border: 1px solid rgba(255,255,255,.15);
-
-  border-radius: 5px;
-
-  padding: 7px 15px;
-
-  font-weight: 700;
-
-  cursor: pointer;
-}
-
-
-.menu button:hover {
-  background: rgba(255,80,200,.75);
-} /* ===== NÃO REPETIR O BANNER ===== */
-
-html,
-body,
-#aba-inicio,
-.inicio-mundo {
-  background-image: none !important;
-  background-repeat: no-repeat !important;
-}
-
-.inicio-mundo {
-  height: auto !important;
-  min-height: 0 !important;
-}
-
-.inicio-mundo .mundo-img {
-  display: block !important;
-  width: 100% !important;
-  height: auto !important;
-}
-
-
