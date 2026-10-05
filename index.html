@@ -1,1 +1,104 @@
-<!doctype html><html lang=pt-BR><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>MineMarket</title><link rel=stylesheet href=style.css></head><body><div id=flowers></div><header><b>MINEMARKET</b><span>10 produtos</span></header><section class=hero><small>CATÁLOGO MINECRAFT</small><h1>MINEMARKET</h1><p>Contas e capas Minecraft</p></section><section class=search><input id=q placeholder="Pesquisar produto..."></section><main id=grid></main><script src=script.js></script></body></html>
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MineMarket</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div id="flowers"></div>
+
+  <header>
+    <b>MINEMARKET</b>
+    <span>10 produtos</span>
+  </header>
+
+  <section class="hero">
+    <small>CATÁLOGO MINECRAFT</small>
+    <h1>MINEMARKET</h1>
+    <p>Contas e capas Minecraft</p>
+
+    <!-- BOTÕES -->
+    <div class="category-buttons">
+      <button onclick="abrirPopup('capas')">
+        CAPAS
+      </button>
+
+      <button onclick="abrirPopup('contas')">
+        CONTAS
+      </button>
+    </div>
+  </section>
+
+
+  <!-- POP-UP CAPAS -->
+  <div class="popup" id="popup-capas">
+
+    <div class="popup-box">
+
+      <button class="popup-close"
+        onclick="fecharPopup('capas')">×</button>
+
+      <small>MINEMARKET</small>
+
+      <h2>CAPAS MINECRAFT</h2>
+
+      <p>
+        Escolha sua capa e personalize seu personagem.
+      </p>
+
+      <button class="popup-action"
+        onclick="fecharPopup('capas')">
+        VER CAPAS
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- POP-UP CONTAS -->
+  <div class="popup" id="popup-contas">
+
+    <div class="popup-box">
+
+      <button class="popup-close"
+        onclick="fecharPopup('contas')">×</button>
+
+      <small>MINEMARKET</small>
+
+      <h2>CONTAS MINECRAFT</h2>
+
+      <p>
+        Veja as contas disponíveis no catálogo.
+      </p>
+
+      <button class="popup-action"
+        onclick="fecharPopup('contas')">
+        VER CONTAS
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <section class="search">
+    <input
+      id="q"
+      placeholder="Pesquisar produto..."
+    >
+  </section>
+
+  <!-- CATÁLOGO ORIGINAL -->
+  <main id="grid"></main>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
