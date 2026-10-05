@@ -583,6 +583,25 @@ header {
 
 .menu button:hover {
   background: rgba(255,80,200,.75);
+} /* ===== NÃO REPETIR O BANNER ===== */
+
+html,
+body,
+#aba-inicio,
+.inicio-mundo {
+  background-image: none !important;
+  background-repeat: no-repeat !important;
+}
+
+.inicio-mundo {
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+.inicio-mundo .mundo-img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
 }
 
 
