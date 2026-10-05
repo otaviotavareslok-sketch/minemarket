@@ -37,7 +37,6 @@ setInterval(criarTavares, 2500);
 
 function criarFolha() {
 
-  // Folhas aparecem somente na página inicial
   const inicio = document.getElementById("aba-inicio");
 
   if (!inicio || inicio.style.display === "none") {
@@ -49,71 +48,49 @@ function criarFolha() {
   folha.className = "leaf";
   folha.textContent = "🍃";
 
-
-  // 50% árvore esquerda / 50% árvore direita
   const ladoEsquerdo = Math.random() < 0.5;
-
 
   if (ladoEsquerdo) {
 
-    // Região das árvores do lado esquerdo
     folha.style.left =
       (2 + Math.random() * 25) + "vw";
 
   } else {
 
-    // Região das árvores do lado direito
     folha.style.left =
       (73 + Math.random() * 25) + "vw";
 
   }
 
-
-  // Altura onde a folha começa
   folha.style.top =
     (75 + Math.random() * 100) + "px";
 
-
-  // Tamanhos diferentes
   folha.style.fontSize =
     (10 + Math.random() * 13) + "px";
 
-
-  // Velocidades diferentes
   folha.style.animationDuration =
     (7 + Math.random() * 6) + "s";
 
-
-  // Movimento horizontal
   folha.style.setProperty(
     "--vento",
     ((Math.random() * 140) - 70) + "px"
   );
 
-
-  // Rotação diferente
   folha.style.setProperty(
     "--rotacao",
     (250 + Math.random() * 400) + "deg"
   );
 
-
-  // Transparência
   folha.style.opacity =
     0.45 + Math.random() * 0.4;
 
-
   document.body.appendChild(folha);
 
-
-  // Remove a folha depois da animação
   setTimeout(() => {
     folha.remove();
   }, 14000);
 }
 
-
-// Cria uma folha a cada 550ms
 setInterval(criarFolha, 550);
 
 
@@ -210,18 +187,15 @@ function mostrarContas() {
     return;
   }
 
-
   let pesquisa = "";
 
   if (pesquisaContas) {
     pesquisa = pesquisaContas.value.toLowerCase();
   }
 
-
   const produtosFiltrados = p.filter(produto =>
     produto.name.toLowerCase().includes(pesquisa)
   );
-
 
   gridContas.innerHTML = produtosFiltrados.map(produto => `
 
@@ -275,8 +249,185 @@ if (pesquisaContas) {
 
 }
 
-
 mostrarContas();
+
+
+// ==========================================
+// CAPAS MINECRAFT
+// ==========================================
+
+const capas = [
+
+  {
+    name: "TWITCH",
+    desc: "☯ CAPA TWITCH",
+    price: "R$ 34,99",
+    image: "capa twitch.png"
+  },
+
+  {
+    name: "TWISTED",
+    desc: "☯ CAPA TWISTED",
+    price: "R$ 44,99",
+    image: "capa twisted.png"
+  },
+
+  {
+    name: "HERO",
+    desc: "☯ CAPA HERO",
+    price: "R$ 44,99",
+    image: "capa hero.png"
+  },
+
+  {
+    name: "BUILDER",
+    desc: "☯ CAPA BUILDER",
+    price: "R$ 8,99",
+    image: "capa builder.png"
+  },
+
+  {
+    name: "HOME",
+    desc: "☯ CAPA HOME",
+    price: "R$ 8,99",
+    image: "capa home.png"
+  },
+
+  {
+    name: "MCE",
+    desc: "☯ CAPA MCE",
+    price: "R$ 359,99",
+    image: "capa mce.png"
+  },
+
+  {
+    name: "MOONLIGHT TRIAL",
+    desc: "☯ CAPA MOONLIGHT TRIAL",
+    price: "R$ 599,99",
+    image: "capa moonlight.png"
+  },
+
+  {
+    name: "COOPER",
+    desc: "☯ CAPA COOPER",
+    price: "R$ 12,99",
+    image: "capa cooper.png"
+  },
+
+  {
+    name: "TIKTOK",
+    desc: "☯ CAPA TIKTOK",
+    price: "R$ 34,99",
+    image: "capa tiktok.png"
+  },
+
+  {
+    name: "MENACE",
+    desc: "☯ CAPA MENACE",
+    price: "R$ 14,99",
+    image: "capa menace.png"
+  },
+
+  {
+    name: "OF",
+    desc: "☯ CAPA OF",
+    price: "R$ 7,99",
+    image: "capa of.png"
+  }
+
+];
+
+
+// ==========================================
+// MOSTRAR CAPAS
+// ==========================================
+
+const gridCapas =
+  document.querySelector("#grid-capas");
+
+const pesquisaCapas =
+  document.querySelector("#q-capas");
+
+
+function mostrarCapas() {
+
+  if (!gridCapas) {
+    return;
+  }
+
+  let pesquisa = "";
+
+  if (pesquisaCapas) {
+    pesquisa =
+      pesquisaCapas.value.toLowerCase();
+  }
+
+  const capasFiltradas =
+    capas.filter(capa =>
+      capa.name
+        .toLowerCase()
+        .includes(pesquisa)
+    );
+
+
+  gridCapas.innerHTML =
+    capasFiltradas.map(capa => `
+
+      <article class="card capa-card">
+
+        <div class="visual capa-visual">
+
+          <img
+            src="${encodeURI(capa.image)}"
+            alt="${capa.name}"
+            loading="lazy"
+          >
+
+        </div>
+
+
+        <div class="body">
+
+          <h3>
+            ${capa.name}
+          </h3>
+
+          <p class="desc">
+            ${capa.desc}
+          </p>
+
+          <div class="price">
+            ${capa.price}
+          </div>
+
+          <small>
+            à vista no PIX
+          </small>
+
+          <button class="buy">
+            Comprar agora
+          </button>
+
+        </div>
+
+      </article>
+
+    `).join("");
+
+}
+
+
+if (pesquisaCapas) {
+
+  pesquisaCapas.addEventListener(
+    "input",
+    mostrarCapas
+  );
+
+}
+
+
+mostrarCapas();
 
 
 // ==========================================
@@ -289,20 +440,19 @@ function abrirAba(aba) {
   const inicio =
     document.getElementById("aba-inicio");
 
-  const capas =
+  const abaCapas =
     document.getElementById("aba-capas");
 
   const contas =
     document.getElementById("aba-contas");
 
 
-  // Esconde todas
   if (inicio) {
     inicio.style.display = "none";
   }
 
-  if (capas) {
-    capas.style.display = "none";
+  if (abaCapas) {
+    abaCapas.style.display = "none";
   }
 
   if (contas) {
@@ -310,23 +460,19 @@ function abrirAba(aba) {
   }
 
 
-  // Mostra a selecionada
   if (aba === "inicio" && inicio) {
     inicio.style.display = "block";
   }
 
-
-  if (aba === "capas" && capas) {
-    capas.style.display = "block";
+  if (aba === "capas" && abaCapas) {
+    abaCapas.style.display = "block";
   }
-
 
   if (aba === "contas" && contas) {
     contas.style.display = "block";
   }
 
 
-  // Volta ao topo
   window.scrollTo({
     top: 0,
     behavior: "smooth"
@@ -344,6 +490,8 @@ document.addEventListener(
   function () {
 
     abrirAba("inicio");
+    mostrarContas();
+    mostrarCapas();
 
   }
 );
