@@ -18,14 +18,14 @@ body {
 }
 
 html {
-  background: #17191d;
+  background: #11151d;
 }
 
 body {
   color: white;
   font-family: Arial, sans-serif;
   overflow-x: hidden;
-  background: #17191d;
+  background: #11151d;
 }
 
 button,
@@ -141,14 +141,15 @@ header {
   margin: 0;
   padding: 0;
 
-  background: #17191d;
+  background: #11151d;
 }
 
 
 /* =====================================================
-   BANNER PRINCIPAL
+   MUNDO COMPLETO
 
-   banner novo2.png aparece UMA VEZ.
+   AGORA É UMA ÚNICA IMAGEM VERTICAL.
+   NÃO EXISTE MAIS FUNDO-PEDRA.
 ===================================================== */
 
 .inicio-mundo {
@@ -159,14 +160,19 @@ header {
   margin: 0;
   padding: 0;
 
-  overflow: hidden;
+  overflow: visible;
 
-  background: #17191d;
+  background: #11151d;
 }
 
 
-/* A imagem NÃO é background.
-   Ela existe somente como <img>. */
+/*
+   A imagem ocupa a largura inteira.
+
+   Conforme a pessoa rola o site,
+   ela vai vendo as partes mais profundas
+   da mesma imagem.
+*/
 
 .inicio-mundo .mundo-img {
   position: relative;
@@ -174,7 +180,7 @@ header {
   display: block;
 
   width: 100%;
-  max-width: 100%;
+  max-width: none;
 
   height: auto;
 
@@ -182,6 +188,7 @@ header {
   padding: 0;
 
   object-fit: contain;
+  object-position: top center;
 
   background: transparent;
 
@@ -190,7 +197,7 @@ header {
 
 
 /* =====================================================
-   TEXTO SOBRE O CÉU
+   CONTEÚDO SOBRE O CÉU
 ===================================================== */
 
 .inicio-conteudo {
@@ -223,7 +230,7 @@ header {
   letter-spacing: 5px;
 
   text-shadow:
-    0 2px 5px rgba(0, 0, 0, 0.55);
+    0 2px 5px rgba(0, 0, 0, 0.70);
 }
 
 .inicio-conteudo p {
@@ -232,7 +239,7 @@ header {
   font-size: 17px;
 
   text-shadow:
-    0 2px 5px rgba(0, 0, 0, 0.55);
+    0 2px 5px rgba(0, 0, 0, 0.70);
 }
 
 
@@ -295,92 +302,6 @@ header {
 
   box-shadow:
     0 8px 20px rgba(0, 0, 0, 0.25);
-}
-
-
-/* =====================================================
-   CONTINUAÇÃO DA CAVERNA
-
-   IMPORTANTE:
-   NÃO USA banner novo2.png.
-
-   Usa SOMENTE caverna.png.
-===================================================== */
-
-.fundo-pedra {
-  position: relative;
-
-  width: 100%;
-
-  /*
-     Aumente esse valor futuramente caso
-     queira mais espaço para conteúdo.
-  */
-  min-height: 1400px;
-
-  margin: 0;
-  padding: 0;
-
-  /*
-     NOVA IMAGEM:
-     continuação somente de pedra/caverna
-  */
-  background-image: url("caverna.png");
-
-  /*
-     Mantém a imagem cobrindo toda
-     a largura do site.
-  */
-  background-size: 100% auto;
-
-  /*
-     Começa pelo topo da nova caverna.
-  */
-  background-position: center top;
-
-  /*
-     A imagem continua verticalmente.
-
-     Como caverna.png NÃO possui céu,
-     nunca veremos novamente árvores,
-     personagens ou o Feast.
-  */
-  background-repeat: repeat-y;
-
-  /*
-     Caso alguma área fique descoberta,
-     fica escura como a caverna.
-  */
-  background-color: #17191d;
-
-  z-index: 1;
-}
-
-
-/* Pequena sombra na união das duas imagens.
-   Ajuda a esconder uma eventual linha entre
-   banner novo2.png e caverna.png. */
-
-.fundo-pedra::before {
-  content: "";
-
-  position: absolute;
-
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 18px;
-
-  pointer-events: none;
-
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.20),
-    transparent
-  );
-
-  z-index: 2;
 }
 
 
@@ -612,7 +533,6 @@ header {
 
 .buy:hover {
   transform: translateY(-2px);
-
   filter: brightness(1.08);
 }
 
@@ -673,40 +593,35 @@ header {
 
 
 /* =====================================================
-   FOLHAS PIXELADAS
+   FOLHAS PIXELIZADAS
 
-   NÃO SÃO EMOJI.
-   A folha é desenhada pelo CSS.
+   IMPORTANTE:
+   NÃO EXISTE EMOJI AQUI.
+   A FOLHA É DESENHADA COM PIXELS PELO CSS.
 ===================================================== */
 
 .leaf {
   position: fixed;
 
-  top: -20px;
+  top: -25px;
 
-  /*
-     O JS pode alterar left, duração,
-     --vento e --rotacao.
-  */
+  width: 6px;
+  height: 6px;
 
-  width: 7px;
-  height: 7px;
+  background: #4b9639;
 
-  /*
-     Pixel central
-  */
-  background: #4c9b3c;
-
-  /*
-     Outros pixels formam uma folhinha
-     Minecraft.
-  */
   box-shadow:
-    7px 0 #347c31,
-    -7px 0 #61ad45,
-    0 7px #347c31,
-    7px 7px #28672b,
-    -7px 7px #438f36;
+    6px 0 #347a2e,
+    12px 0 #286528,
+
+    -6px 6px #60ad43,
+    0 6px #4b9639,
+    6px 6px #347a2e,
+
+    0 12px #347a2e,
+    6px 12px #286528,
+
+    6px 18px #235c25;
 
   border-radius: 0;
 
@@ -717,12 +632,12 @@ header {
 
   opacity: 0;
 
-  image-rendering: pixelated;
+  font-size: 0;
+  line-height: 0;
 
-  filter:
-    drop-shadow(
-      0 2px 1px rgba(0, 0, 0, 0.18)
-    );
+  color: transparent;
+
+  image-rendering: pixelated;
 
   animation-name: folhaCaindo;
   animation-timing-function: linear;
@@ -732,17 +647,18 @@ header {
 }
 
 
-/* Algumas folhas um pouco menores */
+/*
+   Isto também esconde qualquer texto/emoji
+   que por acidente esteja dentro de .leaf.
+*/
 
-.leaf:nth-of-type(3n) {
-  transform: scale(0.75);
+.leaf::first-letter {
+  font-size: 0;
 }
 
 
 /* =====================================================
    ANIMAÇÃO DAS FOLHAS
-
-   Movimento de vento.
 ===================================================== */
 
 @keyframes folhaCaindo {
@@ -751,53 +667,74 @@ header {
     opacity: 0;
 
     transform:
-      translate(0, 0)
+      translate3d(0, 0, 0)
       rotate(0deg);
   }
 
   8% {
-    opacity: 0.75;
+    opacity: 0.85;
   }
 
   25% {
     transform:
-      translate(
+      translate3d(
         var(--vento, 25px),
-        22vh
+        22vh,
+        0
       )
       rotate(90deg);
   }
 
   50% {
     transform:
-      translate(
+      translate3d(
         calc(var(--vento, 25px) * -0.6),
-        46vh
+        48vh,
+        0
       )
       rotate(180deg);
   }
 
   75% {
     transform:
-      translate(
+      translate3d(
         var(--vento, 25px),
-        72vh
+        76vh,
+        0
       )
       rotate(270deg);
 
-    opacity: 0.65;
+    opacity: 0.70;
   }
 
   100% {
     transform:
-      translate(
+      translate3d(
         calc(var(--vento, 25px) * -0.4),
-        108vh
+        110vh,
+        0
       )
       rotate(var(--rotacao, 360deg));
 
     opacity: 0;
   }
+}
+
+
+/* =====================================================
+   REMOVE SISTEMAS ANTIGOS DE FLORES / EMOJIS
+
+   Isso impede que elementos antigos com essas classes
+   apareçam mesmo se ainda existirem no HTML.
+===================================================== */
+
+.flower,
+.flower-particle,
+.blossom,
+.petala,
+.flower-fall,
+#flowers {
+  display: none !important;
 }
 
 
@@ -893,10 +830,6 @@ header {
   .produtos-grid {
     grid-template-columns:
       repeat(2, minmax(0, 1fr));
-  }
-
-  .fundo-pedra {
-    min-height: 1000px;
   }
 
 }
