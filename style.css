@@ -1088,3 +1088,71 @@ header {
   }
 
 }
+/* ==========================================
+   NOVO FUNDO PRINCIPAL - CINZA
+========================================== */
+
+html,
+body {
+  background: #252525 !important;
+}
+
+
+/* PÁGINA DE CAPAS */
+
+#aba-capas {
+  background: #252525 !important;
+}
+
+
+/* PÁGINA DE CONTAS */
+
+#aba-contas {
+  background: #252525 !important;
+}
+
+
+/* ÁREA PRINCIPAL DAS PÁGINAS */
+
+.pagina-aba {
+  background-color: #252525 !important;
+}
+
+
+/* CABEÇALHO */
+
+header {
+  background: #202020 !important;
+}
+
+
+/* TÍTULOS */
+
+.titulo-categoria {
+  background: transparent !important;
+}
+
+
+/* ==========================================
+   CARDS
+   Mantém o roxo/rosa da identidade
+========================================== */
+
+.card {
+  background: #5c124b !important;
+}
+
+
+/* ==========================================
+   CAMPO DE PESQUISA
+========================================== */
+
+.search input {
+  background: #303030 !important;
+  color: white !important;
+  border: 1px solid #a94b91 !important;
+}
+
+.search input::placeholder {
+  color: #cfcfcf !important;
+}
