@@ -22,7 +22,90 @@
 @keyframes tavaresFall {
   0% {
     transform: translateY(-60px) rotate(-8deg);
+  }/* ===== CATÁLOGO EM DUAS COLUNAS ===== */
+
+.catalogo {
+  width: min(1400px, 94%);
+  margin: 50px auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 35px;
+
+  align-items: start;
+}
+
+.catalogo-coluna {
+  min-width: 0;
+
+  padding: 25px;
+
+  background: rgba(12, 7, 20, 0.75);
+
+  border: 1px solid rgba(155, 92, 255, 0.35);
+  border-radius: 16px;
+
+  box-shadow:
+    0 0 25px rgba(155, 92, 255, 0.10);
+}
+
+.titulo-categoria {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.titulo-categoria small {
+  color: #ff4fd8;
+}
+
+.titulo-categoria h2 {
+  margin: 12px 0;
+
+  color: white;
+
+  font-family: "Press Start 2P", cursive;
+  font-size: 22px;
+
+  text-shadow:
+    0 0 10px #9b5cff,
+    0 0 20px rgba(255, 79, 216, 0.6);
+}
+
+.titulo-categoria p {
+  color: #aaa;
+  font-size: 13px;
+}
+
+
+/* PRODUTOS DENTRO DE CADA COLUNA */
+
+.produtos-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+
+/* CELULAR */
+
+@media (max-width: 900px) {
+
+  .catalogo {
+    grid-template-columns: 1fr;
   }
+
+}
+
+@media (max-width: 600px) {
+
+  .produtos-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
 
   50% {
     transform: translateY(55vh) translateX(20px) rotate(5deg);
