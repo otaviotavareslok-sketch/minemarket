@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
+
 /* =========================
    BASE
 ========================= */
@@ -12,7 +13,12 @@ html,
 body {
   margin: 0;
   padding: 0;
+  width: 100%;
   min-height: 100%;
+}
+
+html {
+  background: #222;
 }
 
 body {
@@ -76,7 +82,9 @@ header {
 }
 
 
-/* MENU SUPERIOR */
+/* =========================
+   MENU SUPERIOR
+========================= */
 
 .menu {
   display: flex;
@@ -127,12 +135,16 @@ header {
 }
 
 
-/* CONTAINER DA IMAGEM */
+/* =========================
+   MUNDO / BANNER
+========================= */
 
 .inicio-mundo {
   position: relative;
 
   width: 100%;
+  height: auto;
+
   margin: 0;
   padding: 0;
 
@@ -142,15 +154,19 @@ header {
 }
 
 
-/* IMPORTANTE:
-   A IMAGEM EXISTE APENAS COMO <img>.
-   NÃO É BACKGROUND.
+/*
+   A imagem existe SOMENTE como <img>.
+   Não existe background-image aqui.
 */
 
 .inicio-mundo .mundo-img {
+  position: relative;
+
   display: block;
 
   width: 100%;
+  max-width: 100%;
+
   height: auto;
 
   margin: 0;
@@ -158,7 +174,9 @@ header {
 
   object-fit: contain;
 
-  background: none;
+  background: transparent;
+
+  z-index: 1;
 }
 
 
@@ -273,15 +291,25 @@ header {
 ========================= */
 
 /*
-  Quando adicionarmos a textura de pedra,
-  ela entrará aqui DEPOIS da imagem.
+   Depois que banner novo2.png terminar,
+   começa esta região.
+
+   NÃO possui imagem de fundo.
+   Portanto o banner não pode repetir aqui.
 */
 
 .fundo-pedra {
+  position: relative;
+
   width: 100%;
   min-height: 600px;
 
-  background-color: #343434;
+  margin: 0;
+  padding: 0;
+
+  background: #343434;
+
+  z-index: 1;
 }
 
 
@@ -305,7 +333,9 @@ header {
 }
 
 
-/* TÍTULOS */
+/* =========================
+   TÍTULOS
+========================= */
 
 .titulo-categoria {
   text-align: center;
@@ -356,6 +386,15 @@ header {
 
   background: #541744dd;
   color: white;
+
+  outline: none;
+}
+
+.search input:focus {
+  border-color: #ff69c8;
+
+  box-shadow:
+    0 0 10px rgba(255, 105, 200, 0.35);
 }
 
 
@@ -488,38 +527,20 @@ header {
   font-weight: bold;
 
   cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
+}
+
+.buy:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
 }
 
 
 /* =========================
-   FLORES
-========================= */
-
-.flower {
-  position: fixed;
-
-  top: -40px;
-
-  z-index: 2;
-
-  opacity: 0.18;
-
-  pointer-events: none;
-
-  animation: fall linear infinite;
-}
-
-@keyframes fall {
-  to {
-    transform:
-      translate(30px, 110vh)
-      rotate(360deg);
-  }
-}
-
-
-/* =========================
-   TAVARES
+   MARCA D'ÁGUA TAVARES
 ========================= */
 
 .tavares-watermark {
@@ -527,7 +548,7 @@ header {
 
   top: -60px;
 
-  z-index: 3;
+  z-index: 30;
 
   pointer-events: none;
   user-select: none;
@@ -567,110 +588,20 @@ header {
       translateY(115vh)
       translateX(-15px)
       rotate(-6deg);
+
+    opacity: 0;
   }
 }
 
 
 /* =========================
-   ELEMENTOS REVELADOS NO SCROLL
-========================= */
-
-.reveal {
-  opacity: 0;
-
-  transform: translateY(50px);
-
-  transition:
-    opacity 0.8s ease,
-    transform 0.8s ease;
-}
-
-.reveal.apareceu {
-  opacity: 1;
-
-  transform: translateY(0);
-}
-
-
-/* =========================
-   RESPONSIVO
-========================= */
-
-@media (max-width: 1050px) {
-
-  .produtos-grid {
-    grid-template-columns:
-      repeat(3, minmax(0, 1fr));
-  }
-
-  header {
-    padding: 0 5%;
-  }
-}
-
-
-@media (max-width: 700px) {
-
-  header {
-    height: 65px;
-  }
-
-  .logo-topo {
-    font-size: 17px;
-  }
-
-  .menu {
-    gap: 4px;
-  }
-
-  .menu button {
-    padding: 8px 9px;
-    font-size: 11px;
-  }
-
-  .inicio-conteudo {
-    top: 78px;
-  }
-
-  .inicio-conteudo small {
-    font-size: 10px;
-    letter-spacing: 2px;
-  }
-
-  .inicio-conteudo p {
-    font-size: 13px;
-  }
-
-  .category-buttons {
-    gap: 8px;
-  }
-
-  .category-buttons button {
-    width: 120px;
-    padding: 11px 10px;
-    font-size: 9px;
-  }
-
-  .produtos-grid {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
-  }
-}
-
-
-@media (max-width: 450px) {
-
-  .produtos-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .menu button {
-    padding: 7px;
-    font-size: 9px;
-  }
-}/* =========================
    FOLHAS DAS ÁRVORES
 ========================= */
+
+/*
+   NÃO EXISTE MAIS .flower.
+   Somente as folhas novas.
+*/
 
 .leaf {
   position: fixed;
@@ -680,14 +611,15 @@ header {
   pointer-events: none;
   user-select: none;
 
+  line-height: 1;
+
   animation-name: folhaCaindo;
   animation-timing-function: linear;
   animation-fill-mode: forwards;
 
   filter:
-    drop-shadow(0 2px 2px rgba(0,0,0,.25));
+    drop-shadow(0 2px 2px rgba(0, 0, 0, 0.25));
 }
-
 
 @keyframes folhaCaindo {
 
@@ -726,6 +658,125 @@ header {
       rotate(var(--rotacao));
 
     opacity: 0;
+  }
+}
+
+
+/* =========================
+   ELEMENTOS REVELADOS
+   CONFORME ROLA O SITE
+========================= */
+
+.reveal {
+  opacity: 0;
+
+  transform: translateY(50px);
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.reveal.apareceu {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 1050px) {
+
+  .produtos-grid {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+
+  header {
+    padding: 0 5%;
+  }
+
+}
+
+
+@media (max-width: 700px) {
+
+  header {
+    height: 65px;
+
+    padding: 0 3%;
+  }
+
+  .logo-topo {
+    font-size: 17px;
+  }
+
+  .menu {
+    gap: 4px;
+  }
+
+  .menu button {
+    padding: 8px 9px;
+
+    font-size: 11px;
+  }
+
+  .inicio-conteudo {
+    top: 78px;
+  }
+
+  .inicio-conteudo small {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  .inicio-conteudo p {
+    font-size: 13px;
+  }
+
+  .category-buttons {
+    gap: 8px;
+  }
+
+  .category-buttons button {
+    width: 120px;
+
+    padding: 11px 10px;
+
+    font-size: 9px;
+  }
+
+  .produtos-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+@media (max-width: 450px) {
+
+  .logo-topo {
+    font-size: 13px;
+  }
+
+  .produtos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .menu button {
+    padding: 7px;
+
+    font-size: 9px;
+  }
+
+  .category-buttons button {
+    width: 105px;
+
+    font-size: 8px;
   }
 
 }
